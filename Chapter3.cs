@@ -833,6 +833,10 @@ namespace _1400_exercises
             Console.ReadLine();
         }
 
+        public static void Exercise38()
+        {
+
+        }
 
     }
 
