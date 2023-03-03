@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -836,9 +837,367 @@ namespace _1400_exercises
         public static void Exercise38()
         {
 
+            // 6 = 456 - 10*(456/10)
+            // 4 = 456/100
+            // 5 = (456 - 100*(456/100) - (456 - 10*(456/10)))/10
+
+            int x = 100 * (456 / 100) + 10 * (456 - 10 * (456 / 10)) + (456 - 100 * (456 / 100) - (456 - 10 * (456 / 10))) / 10;
+            Console.WriteLine("x {0}", x);
+            Console.ReadLine();
+        }
+        public static void Exercise39()
+        {
+
+            Console.WriteLine("Enter number between 100 and 999");
+            string inputX = Console.ReadLine();
+
+            if (int.TryParse(inputX, out int x) && x>=100 && x <= 999)
+            {
+                int res = 100 * (x / 100) + 10 * (x - 10 * (x / 10)) + (x - 100 * (x / 100) - (x - 10 * (x / 10))) / 10;
+                Console.WriteLine("x {0}", res);
+            }
+
+            else
+            {
+                Console.WriteLine("number should be between 100 and 999");
+            }
+            
+            Console.ReadLine();
         }
 
+        public static void Exercise40()
+        {
+
+            int res = 100 * (654 - 100 * (654 / 100) - 10 * ((654 - (654 / 100) * 100) / 10)) + 10 * ((654 - (654 / 100) * 100) / 10) + 654 / 100;
+            Console.WriteLine("x {0}", res);
+
+        }
+        public static void Exercise41()
+        {
+            Console.WriteLine("Enter number n , between 1 and 999");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) && n>=1 && n <= 999)
+            {
+                int res = 100 * (n - 100 * (n / 100) - 10 * ((n - (n / 100) * 100) / 10)) + 10 * ((n - (n / 100) * 100) / 10) + n / 100;
+                Console.WriteLine("x {0}", res);
+            }
+
+            else
+            {
+                Console.WriteLine("Number n should be integer between 1 and 999");
+            }
+
+        }
+
+        public static void Exercise42()
+        {
+            Console.WriteLine("Enter number A2A1");
+            string inputA2A1 = Console.ReadLine();
+
+            Console.WriteLine("Enter number B");
+            string inputB = Console.ReadLine();
+
+            if (int.TryParse(inputA2A1, out int a2a1) && int.TryParse(inputB, out int b) && 
+                b>=0 && b<=9 && a2a1>=10 && a2a1 <=99)
+            {
+
+                int a2 = a2a1 / 10;
+                int a1 = a2a1 - 10 * (a2a1 / 10);
+                int res = a2 + a1 + b;
+                Console.WriteLine("Numbers A2A1 = {0}, B = {1}", a2a1, b);
+                Console.WriteLine("Sum of digits A2A1 and B = {0} ", res );
+            }
+
+            else
+            {
+                Console.WriteLine("check number A2A1 / B");
+            }
+
+            Console.ReadLine();
+        }
+
+        public static void Exercise43()
+        {
+            Console.WriteLine("Enter number A2A1");
+            string inputA2A1 = Console.ReadLine();
+
+            Console.WriteLine("Enter number B2B1");
+            string inputB2B1 = Console.ReadLine();
+
+            if (int.TryParse(inputA2A1, out int a2a1) && int.TryParse(inputB2B1, out int b2b1) &&
+                b2b1 >= 10 && b2b1 <= 99 && a2a1 >= 10 && a2a1 <= 99)
+            {
+
+                int a2 = a2a1 / 10;
+                int a1 = a2a1 - 10 * (a2a1 / 10);
+                int b2 = b2b1 / 10;
+                int b1 = b2b1 - 10 * (b2b1 / 10);
+                int res = a2 + a1 + b2 + b1;
+                Console.WriteLine("Numbers A2A1 = {0}, B2B1 = {1}", a2a1, b2b1);
+                Console.WriteLine("Sum of digits A2A1 and B2B1 = {0} ", res);
+            }
+
+            else
+            {
+                Console.WriteLine("check number A2A1 / B2B1");
+            }
+
+            Console.ReadLine();
+        }
+
+        public static void Exercise44()
+        {
+            Console.WriteLine("Enter number A3A2A1");
+            string inputA3A2A1 = Console.ReadLine();
+
+            Console.WriteLine("Enter number B2B1");
+            string inputB2B1 = Console.ReadLine();
+
+            if (int.TryParse(inputA3A2A1, out int a3a2a1) && int.TryParse(inputB2B1, out int b2b1) &&
+                b2b1 >= 10 && b2b1 <= 99 && a3a2a1 >= 100 && a3a2a1 <= 999)
+            {
+
+                int a3 = a3a2a1 / 100;
+                int a2 = (a3a2a1 - 100 * (a3)) / 10;
+                int a1 = a3a2a1 - a3*100 - 10*a2;
+                int b2 = b2b1 / 10;
+                int b1 = b2b1 - 10 * (b2b1 / 10);
+                int res = a3 + a2 + a1 + b2 + b1;
+                Console.WriteLine("Numbers A3A2A1 = {0}, B2B1 = {1}", a3a2a1, b2b1);
+                Console.WriteLine("Sum of digits A2A1 and B2B1 = {0} ", res);
+            }
+
+            else
+            {
+                Console.WriteLine("check number A3A2A1 / B2B1");
+            }
+
+            Console.ReadLine();
+        }
+
+        public static void Exercise45()
+        {
+            Console.WriteLine("Enter k , between 1 and 180");
+            string inputK = Console.ReadLine();
+
+            if (int.TryParse(inputK, out int k) && k>=1 && k<=180)
+            {
+                int count = 1;
+                for (int i=10; i<=99; i++)
+                {
+                    if ((i / 10)== k || (i-10*(i/10))==k || i==k)
+
+                    {
+                        Console.WriteLine("Number of pairs {0}, Number {1}", count, i);
+                    }
+
+                    count++;
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("k should be integer between 1 and 180");
+            }
+
+            Console.ReadLine();
+        }
+
+
+        public static void Exercise46()
+        {
+
+            Console.WriteLine("Part a:");
+            for (int i = 101; i <= 150; i++)
+                {
+                    if (i % 3 == 0)
+                    {
+                        Console.WriteLine("Number: {0}", i);
+                    }
+                }
+
+            Console.WriteLine("--------------------------------");
+
+            Console.WriteLine("Part b:");
+
+            //for (int i=0; i<=150; i++)
+            //{
+
+            //}
+        }  // Dont udnerstand task(
+
+
+        public static void Exercise47()
+        {
+            Console.WriteLine("Enter hours: ");
+            string inputH = Console.ReadLine();
+            Console.WriteLine("Enter minutes: ");
+            string inputM = Console.ReadLine();
+            Console.WriteLine("Enter secunds: ");
+            string inputS = Console.ReadLine();
+
+            if (int.TryParse(inputH, out int h) &&  h>0 && h<=23 &&
+                int.TryParse(inputM, out int m) && m >= 0 && m <= 59 &&
+                int.TryParse(inputS, out int s) && s >= 0 && s <= 59)
+            {
+
+                Console.WriteLine("Angle: {0}", h*30+0.5*m+s*(0.5/60));
+            }
+
+            else
+            {
+                Console.WriteLine("H should be integer, 0 < H <=23");
+                Console.WriteLine("M should be integer, 0 <= M <=59");
+                Console.WriteLine("S should be integer, 0 <= S <=59");
+
+            }
+            Console.Read();
+        }
+
+        public static void Exercise48()
+        {
+            
+            Console.WriteLine("Enter y in dergree (double, 0<= y < 360)");
+            string inputY = Console.ReadLine();
+
+            if (double.TryParse(inputY, out double y) && y>=0 && y < 360)
+            {
+                int resHour = (int)y / 30;
+                int resMin = resHour * 60;
+
+                Console.WriteLine("Hours: {0}", resHour);
+                Console.WriteLine("Minutes: {0}", resMin);
+            }
+
+            else
+            {
+                Console.WriteLine("y should be  double, 0 <= y < 360");
+            }
+
+        }
+
+        public static void Exercise49()
+        {
+            Console.WriteLine("Enter angle y 0 <= y < 360 ");
+            string inputY = Console.ReadLine();
+
+            if (double.TryParse(inputY, out double y) && y >= 0 && y < 360)
+            {
+
+                int hours = (int)(y / 30.0);
+                int minutes = (int)((y - hours * 30) / 0.5);
+                Console.WriteLine("{0} hours {1} minutes", hours, minutes);
+            }
+
+            else
+            {
+                Console.WriteLine("y should be number between 0 and 360");
+            }
+
+            Console.ReadLine();
+
+        }
+
+        public static void Exercise50a()
+        {
+            Console.WriteLine("Enter hours: ");
+            string inputH = Console.ReadLine();
+            Console.WriteLine("Enter minutes: ");
+            string inputM = Console.ReadLine();
+            
+
+            if (int.TryParse(inputH, out int h) && h > 0 && h <= 12 &&
+                int.TryParse(inputM, out int m) && m >= 0 && m <= 59)
+            {
+
+                int nextH = 99;
+                int nextM = 99;
+
+                for (int i = 12; i >=h; i--)  //int i = h; i <=12; i++
+                {
+                    
+                    for (int j=59; j >=m; j--) //int j=m; j <=59; j++
+                    {
+                        
+                        if (i == 5 * j)
+                        {
+                            nextH = i;
+                            nextM = j;
+                            Console.WriteLine("{0} H = {1} M", i,j);
+                        }
+                    }
+                }
+
+                if (nextH!=99 && nextM != 99)
+                {
+                    Console.WriteLine("Minutes {0}", (nextH-h)*60+(nextM-m));
+                }
+                else
+                {
+                    Console.WriteLine("Not found");
+                }
+
+                
+            }
+
+            else
+            {
+                Console.WriteLine("h and m should be integer ");
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise50b()
+        {
+            Console.WriteLine("Enter hours: ");
+            string inputH = Console.ReadLine();
+            Console.WriteLine("Enter minutes: ");
+            string inputM = Console.ReadLine();
+
+
+            if (int.TryParse(inputH, out int h) && h > 0 && h <= 12 &&
+                int.TryParse(inputM, out int m) && m >= 0 && m <= 59)
+            {
+
+                int nextH = 99;
+                int nextM = 99;
+
+                for (int i = 12; i >= h; i--)  //int i = h; i <=12; i++
+                {
+
+                    for (int j = 59; j >= m; j--) //int j=m; j <=59; j++
+                    {
+
+                        if (91*i == 5 * j)
+                        {
+                            nextH = i;
+                            nextM = j;
+                            Console.WriteLine("{0} H = {1} M", i, j);
+                        }
+                    }
+                }
+
+                if (nextH != 99 && nextM != 99)
+                {
+                    Console.WriteLine("Minutes {0}", (nextH - h) * 60 + (nextM - m));
+                }
+                else
+                {
+                    Console.WriteLine("Not found");
+                }
+
+            }
+
+            else
+            {
+                Console.WriteLine("h and m should be integer ");
+            }
+            Console.ReadLine();
+        }
     }
+
+    
 
 
     class Program3
@@ -883,7 +1242,21 @@ namespace _1400_exercises
             //Chapter3.Exercise34();
             //Chapter3.Exercise35();
             //Chapter3.Exercise36();
-            Chapter3.Exercise37();
+            //Chapter3.Exercise37();
+            //Chapter3.Exercise38();
+            //Chapter3.Exercise39();
+            //Chapter3.Exercise40();
+            //Chapter3.Exercise41();
+            //Chapter3.Exercise42();
+            //Chapter3.Exercise43();
+            //Chapter3.Exercise44();
+            //Chapter3.Exercise45();
+            //Chapter3.Exercise46();
+            //Chapter3.Exercise47();
+            //Chapter3.Exercise48();
+            //Chapter3.Exercise49();
+            //Chapter3.Exercise50a();
+            Chapter3.Exercise50b();
         }
     }
 }
