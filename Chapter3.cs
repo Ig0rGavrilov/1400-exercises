@@ -1169,11 +1169,11 @@ namespace _1400_exercises
                     for (int j = 59; j >= m; j--) //int j=m; j <=59; j++
                     {
 
-                        if (91*i == 5 * j)
+                        if ((5*(i+3) == j) || (5 * (i + 9) == j))
                         {
                             nextH = i;
                             nextM = j;
-                            Console.WriteLine("{0} H = {1} M", i, j);
+                            
                         }
                     }
                 }
@@ -1195,6 +1195,31 @@ namespace _1400_exercises
             }
             Console.ReadLine();
         }
+
+        public static void Exercise51()
+        {
+            Console.WriteLine("Enter number a");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter number b");
+            string inputB = Console.ReadLine();
+
+            if (int.TryParse(inputA, out int a) && int.TryParse(inputB, out int b))
+            {
+                if ((a %  b==0) || (b % a == 0))
+                {
+                    Console.WriteLine("Answer 1");
+                }
+                else
+                {
+                    Console.WriteLine("Answer 0");
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("a and b should be integer");
+            }
+        }
     }
 
     
@@ -1202,7 +1227,7 @@ namespace _1400_exercises
 
     class Program3
     {
-        static void Main(string[] args)
+        static void Mainx(string[] args)
         {
             //Chapter3.Exercise1();
             //Chapter3.Exercise2();
@@ -1256,7 +1281,8 @@ namespace _1400_exercises
             //Chapter3.Exercise48();
             //Chapter3.Exercise49();
             //Chapter3.Exercise50a();
-            Chapter3.Exercise50b();
+            //Chapter3.Exercise50b();
+            Chapter3.Exercise51();
         }
     }
 }
