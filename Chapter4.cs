@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -315,8 +317,222 @@ namespace _1400_exercises
 
             Console.ReadLine();
         }
-        
-        
+
+        public static void Exercise11()
+        {
+            Console.WriteLine("Enter speed 1 in km/h");
+            string inputSpeed1 = Console.ReadLine();
+            Console.WriteLine("Enter speed 2 in m/s");
+            string inputSpeed2 = Console.ReadLine();
+             if (double.TryParse(inputSpeed1, out double speed1) && 
+                double.TryParse(inputSpeed2, out double speed2) && speed1>=0 && speed2 >= 0){
+
+                string result = (speed1 * 100 / 3600 > speed2) ? "Speed 1 is bigger" : "Speed 2 is bigger";
+                Console.WriteLine(result);
+
+
+            }
+            else { Console.WriteLine("Speed should be positive number"); }
+
+            Console.ReadLine();
+        }
+
+        public static void Exercise12()
+        {
+            Console.WriteLine("Enter radius");
+            string inputRadius = Console.ReadLine();
+            Console.WriteLine("Enter side length");
+            string inputLength = Console.ReadLine();
+
+            if (double.TryParse(inputLength, out double length) &&
+                double.TryParse(inputRadius, out double radius) &&
+                length>=0  && radius >=0)
+            {
+                string res = (2 * Math.PI * Math.Pow(radius, 2) > Math.Pow(length, 2)) ? "Area of circle is bigger" : "Area of square is bigger";
+                Console.WriteLine(res);
+            }
+
+            else
+            {
+                Console.WriteLine("Should be postive numbers");
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise13()
+        {
+            Console.WriteLine("Enter V1");
+            string inputV1 = Console.ReadLine();
+            Console.WriteLine("Enter W1");
+            string inputW1 = Console.ReadLine();
+            Console.WriteLine("Enter V2");
+            string inputV2 = Console.ReadLine();
+            Console.WriteLine("Enter W2");
+            string inputW2 = Console.ReadLine();
+
+            if (double.TryParse(inputV1, out double v1) &&
+                double.TryParse(inputV1, out double w1) &&
+                double.TryParse(inputV2, out double v2) &&
+                double.TryParse(inputW2, out double w2) &&
+                v1>0 && w1>0 && v2>0 && w2>0)
+            {
+                string res = (w1 / v1 > w2 / v2) ? " 1 is weighter than 2" : " 2 is weighter than 1";
+
+                Console.WriteLine(res);
+            }
+            
+            else { Console.WriteLine("V1, W1, V2 and W2 >0 !"); }
+
+
+            Console.ReadLine();
+        }
+
+        public static void Exercise14()
+        {
+
+            Console.WriteLine("enter resistance R1");
+            string inputR1 = Console.ReadLine();
+            Console.WriteLine("enter resistance R2");
+            string inputR2 = Console.ReadLine();
+
+            if(double.TryParse(inputR1, out double r1) &&
+                double.TryParse(inputR2, out double r2) &&
+                r1>0 && r2>0) 
+            {
+                string result = (r1 > r2) ? "Current I1 is lower than I2" : "Current I1 is higher than I2";
+                Console.WriteLine(result);
+            }
+            else { Console.WriteLine("Resistances should be grater than 0"); }
+
+            Console.ReadLine();
+        }
+
+        public static void Exercise15()
+        {
+            Console.WriteLine("a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("c:");
+            string inputC = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputC, out double c) && a!=0)
+            {
+                string result = (Math.Pow(b, 2) - 4 * a * c >= 0) ? "function has roots" : "function doesnt have roots";
+                Console.WriteLine(result);
+            }
+
+            else { Console.WriteLine("a , b and c should be numbers. a!=0"); }
+            Console.ReadLine();
+
+        }
+
+        public static void Exercise16()
+        {
+            Console.WriteLine("a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("c:");
+            string inputC = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputC, out double c) && a != 0)
+            {
+                double d = (Math.Pow(b, 2) - 4 * a * c);
+
+                if (d > 0)
+                {
+                    double root1 = (-b - Math.Pow(d, 0.5)) / (2 * a);
+                    double root2 = (-b + Math.Pow(d, 0.5)) / (2 * a);
+                    Console.WriteLine("Root 1 = {0:0.00}, Root 2 = {1:0.00}", root1, root2);
+                }
+
+                else
+                {
+                    Console.WriteLine("function doesnt have roots");
+                }
+
+            }
+
+            else { Console.WriteLine("a , b and c should be numbers. a!=0"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise17()
+        {
+            Console.WriteLine("Enter birth year ");
+            string inputY = Console.ReadLine();
+            Console.WriteLine("Enter birth month");
+            string inputM = Console.ReadLine();
+
+            
+
+            string currentM = (DateTime.Now.Month.ToString());
+            int.TryParse(currentM, out int currentMonth);
+            string currentY = (DateTime.Now.ToString("yyyy"));
+            int.TryParse(currentY, out int currentYear);
+
+
+            if (int.TryParse(inputY, out int birthYear) &&
+                int.TryParse(inputM, out int birthMonth) &&
+                birthYear >= 0 && birthMonth >= 1 && birthMonth <= 12)
+            {
+                
+                int result = currentYear - birthYear;
+                
+
+                if (birthMonth > currentMonth)
+                {
+                    result--;
+                }
+
+                Console.WriteLine("Total age (years) {0}", result);
+
+            }
+            else
+            {
+                Console.WriteLine("Year and month should be intereg month ffrom 1 to 12");
+            
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise18()
+        {
+            Console.WriteLine("Enter area of circle");
+            string sareaCircle = Console.ReadLine();
+            Console.WriteLine("Enter area of square");
+            string sareaSquare = Console.ReadLine();
+
+            if (double.TryParse(sareaCircle,out double areaCircle) &&
+                double.TryParse(sareaSquare, out double areaSquare) &&
+                areaCircle>0 && areaSquare>0)
+            {
+                double r = Math.Pow(areaCircle / Math.PI, 0.5);
+                double a = Math.Pow(areaSquare, 0.5);
+
+                string answerA = (a > r) ? "Circle could be in Square" : "Circle cannt be in Square";
+                Console.WriteLine(answerA);
+                string answerB = (a < r) ? "Square could be in Circle" : "Square cannt be in Circle";
+                Console.WriteLine(answerB);
+
+            }
+
+            else { Console.WriteLine("Area should be grater than 0"); }
+
+
+            Console.ReadLine();
+        }
+
+        public static void Exercise19()
+        {
+
+        }
+
     }
 
     class Program4 
@@ -333,10 +549,19 @@ namespace _1400_exercises
             //Chapter4.Exercise7();
             //Chapter4.Exercise8();
             //Chapter4.Exercise9();
-            Chapter4.Exercise10();
+            //Chapter4.Exercise10();
+            // Chapter4.Exercise11();
+            //Chapter4.Exercise12();
+            //Chapter4.Exercise13();
+            //Chapter4.Exercise14();
+            //Chapter4.Exercise15();
+            //Chapter4.Exercise16();
+            //Chapter4.Exercise17();
+            Chapter4.Exercise18();
+
 
         }
-         }
+    }
 }
         
 
