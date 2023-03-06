@@ -510,7 +510,7 @@ namespace _1400_exercises
 
             if (double.TryParse(sareaCircle,out double areaCircle) &&
                 double.TryParse(sareaSquare, out double areaSquare) &&
-                areaCircle>0 && areaSquare>0)
+                areaCircle>0 && areaSquare > 0)
             {
                 double r = Math.Pow(areaCircle / Math.PI, 0.5);
                 double a = Math.Pow(areaSquare, 0.5);
@@ -530,6 +530,113 @@ namespace _1400_exercises
 
         public static void Exercise19()
         {
+            Console.WriteLine("Enter area of circle");
+            string sareaCircle = Console.ReadLine();
+            Console.WriteLine("Enter area of Triangle");
+            string sareaTriangle = Console.ReadLine();
+
+            if (double.TryParse(sareaCircle, out double areaCircle) &&
+                double.TryParse(sareaTriangle, out double areaTriangle) &&
+                areaCircle > 0 && areaTriangle > 0)
+            {
+                double r = Math.Pow(areaCircle / Math.PI, 0.5);
+                double a = (Math.Pow((4 * areaTriangle) / Math.Pow(3, 0.5), 0.5));
+                double R = Math.Pow(3,0.5)/a;  
+
+                string answerA = (r < a/(2*Math.Pow(2, 0.5))) ? "Circle could be in Triangle" : "Circle cannt be in Triangle";
+                Console.WriteLine(answerA);
+                string answerB = (r > R) ? "Triangle could be in Circle" : "Triangle cannt be in Circle";
+                Console.WriteLine(answerB);
+
+            }
+
+            else { Console.WriteLine("Area should be grater than 0"); }
+
+
+            Console.ReadLine();
+        }
+
+        public static void Exercise20()
+        {
+            Console.WriteLine("Enter x for point A, first square");
+            string inputfirstA_x = Console.ReadLine();
+            Console.WriteLine("Enter y for point A, first square");
+            string inputfirstA_y = Console.ReadLine();
+            Console.WriteLine("Enter x for point B, first square");
+            string inputfirstB_x = Console.ReadLine();
+            Console.WriteLine("Enter y for point B, first square");
+            string inputfirstB_y = Console.ReadLine();
+            Console.WriteLine("Enter x for point A, second square");
+            string inputsecondA_x = Console.ReadLine();
+            Console.WriteLine("Enter y for point A, second square");
+            string inputsecondA_y = Console.ReadLine();
+            Console.WriteLine("Enter x for point B, second square");
+            string inputsecondB_x = Console.ReadLine();
+            Console.WriteLine("Enter y for point B, second square");
+            string inputsecondB_y = Console.ReadLine();
+
+            if (double.TryParse(inputfirstA_x, out double first_a_x) &&
+                double.TryParse(inputfirstA_y, out double first_a_y) &&
+                double.TryParse(inputfirstB_x, out double first_b_x) &&
+                double.TryParse(inputfirstB_y, out double first_b_y) &&
+                double.TryParse(inputsecondA_x, out double second_a_x) &&
+                double.TryParse(inputsecondA_y, out double second_a_y) &&
+                double.TryParse(inputsecondB_x, out double second_b_x) &&
+                double.TryParse(inputsecondB_y, out double second_b_y))
+            {
+
+                // Compare A first and B second by x coordinate , min x should be left low and right high max x
+
+                double[] coordX = new double [4];
+                coordX[0] = first_a_x;                
+                coordX[1] = first_b_x;                
+                coordX[2] = second_a_x;
+                coordX[3] = second_b_x;
+
+                double x_min = coordX[0];
+                double x_max = coordX[0];
+                for (int i = 0; i<coordX.Length; i++)
+                {
+                    if (coordX[i]>x_max)
+                    {
+                        x_max = coordX[i];
+                    }
+                    if (coordX[i] < x_min)
+                    {
+                        x_min = coordX[i];
+                    }
+                }
+
+                double[] coordY = new double[4];
+                
+                coordY[0] = first_a_y;
+                coordY[1] = first_b_y;
+                coordY[2] = second_a_y;
+                coordY[3] = second_b_y;
+
+                double y_min = coordY[0];
+                double y_max = coordY[0];
+                for (int i = 0; i < coordY.Length; i++)
+                {
+                    if (coordX[i] > y_max)
+                    {
+                        y_max = coordY[i];
+                    }
+                    if (coordY[i] < y_min)
+                    {
+                        y_min = coordY[i];
+                    }
+                }
+
+                Console.WriteLine("Coordinates A{0},{1} - low left, B-{2},{3} - right high", x_min, y_min, x_max, y_max);
+            }
+
+            else
+            {
+                Console.WriteLine("Coordinates should be numbers");
+            }
+
+            Console.ReadLine();
 
         }
 
@@ -557,7 +664,9 @@ namespace _1400_exercises
             //Chapter4.Exercise15();
             //Chapter4.Exercise16();
             //Chapter4.Exercise17();
-            Chapter4.Exercise18();
+            //Chapter4.Exercise18();
+            //Chapter4.Exercise19();
+            Chapter4.Exercise20();
 
 
         }
