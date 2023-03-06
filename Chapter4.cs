@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1400_exercises;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
@@ -19,13 +20,13 @@ namespace _1400_exercises
             Console.WriteLine("Enter number b");
             string inputB = Console.ReadLine();
 
-            if (double.TryParse(inputA, out double a) &&  double.TryParse(inputB, out double b))
+            if (double.TryParse(inputA, out double a) && double.TryParse(inputB, out double b))
             {
-                if (a>b)
+                if (a > b)
                 {
-                    Console.WriteLine("number a = {0} and is biggest than number b = {1}", a,b);
+                    Console.WriteLine("number a = {0} and is biggest than number b = {1}", a, b);
                 }
-                else if (a<b)
+                else if (a < b)
                 {
                     Console.WriteLine("number a = {0} and is smaller than number b = {1}", a, b);
                 }
@@ -49,19 +50,19 @@ namespace _1400_exercises
 
             if (double.TryParse(inputX, out double x))
             {
-                if (x>0) 
-                   {
+                if (x > 0)
+                {
                     double res = Math.Pow(Math.Sin(x), 2);
-                    
+
                     Console.WriteLine(" y = {0}", res);
                 }
 
                 else
                 {
-                    double res = 1 - 2* Math.Pow(Math.Sin(x), 2);
+                    double res = 1 - 2 * Math.Pow(Math.Sin(x), 2);
                     Console.WriteLine(" y = {0}", res);
                 }
-                }
+            }
 
             else
             {
@@ -79,7 +80,7 @@ namespace _1400_exercises
             {
                 if (x > 0)
                 {
-                    double res = Math.Sin(Math.Pow(x,2));
+                    double res = Math.Sin(Math.Pow(x, 2));
 
                     Console.WriteLine(" y = {0}", res);
                 }
@@ -107,9 +108,9 @@ namespace _1400_exercises
 
             if (double.TryParse(inputX, out double x) && double.TryParse(inputY, out double y))
             {
-                if (x< 4)
+                if (x < 4)
                 {
-                    Console.WriteLine("Point ({0} , {1}) in Area I", x,y);
+                    Console.WriteLine("Point ({0} , {1}) in Area I", x, y);
                 }
                 else
                 {
@@ -165,14 +166,15 @@ namespace _1400_exercises
                 {
                     Console.WriteLine("y = {0}", x);
                 }
-            
+
             }
-            else {
-                Console.WriteLine("x should be number" );
+            else
+            {
+                Console.WriteLine("x should be number");
 
             }
             Console.ReadLine();
-           
+
         }
 
         public static void Exercise6b()
@@ -199,7 +201,7 @@ namespace _1400_exercises
             Console.ReadLine();
         }
 
-        public static void Exercise7() 
+        public static void Exercise7()
         {
             Console.WriteLine("Enter x");
             string inputX = Console.ReadLine();
@@ -210,16 +212,16 @@ namespace _1400_exercises
 
                 if (Math.Sin(x) < 0)
                 {
-                   k = Math.Pow(x, 2);
+                    k = Math.Pow(x, 2);
                 }
 
                 else
                 {
                     k = Math.Abs(x);
-                    
+
                 }
 
-                if (x>k)
+                if (x > k)
                 {
                     double res = k * x;
                     Console.WriteLine("Result k*x = {0}", res);
@@ -290,7 +292,7 @@ namespace _1400_exercises
                 string res = (a > b) ? "a>b" : "a<b";
                 Console.WriteLine(res);
 
-                
+
             }
             else
             {
@@ -324,8 +326,9 @@ namespace _1400_exercises
             string inputSpeed1 = Console.ReadLine();
             Console.WriteLine("Enter speed 2 in m/s");
             string inputSpeed2 = Console.ReadLine();
-             if (double.TryParse(inputSpeed1, out double speed1) && 
-                double.TryParse(inputSpeed2, out double speed2) && speed1>=0 && speed2 >= 0){
+            if (double.TryParse(inputSpeed1, out double speed1) &&
+               double.TryParse(inputSpeed2, out double speed2) && speed1 >= 0 && speed2 >= 0)
+            {
 
                 string result = (speed1 * 100 / 3600 > speed2) ? "Speed 1 is bigger" : "Speed 2 is bigger";
                 Console.WriteLine(result);
@@ -346,7 +349,7 @@ namespace _1400_exercises
 
             if (double.TryParse(inputLength, out double length) &&
                 double.TryParse(inputRadius, out double radius) &&
-                length>=0  && radius >=0)
+                length >= 0 && radius >= 0)
             {
                 string res = (2 * Math.PI * Math.Pow(radius, 2) > Math.Pow(length, 2)) ? "Area of circle is bigger" : "Area of square is bigger";
                 Console.WriteLine(res);
@@ -374,13 +377,13 @@ namespace _1400_exercises
                 double.TryParse(inputV1, out double w1) &&
                 double.TryParse(inputV2, out double v2) &&
                 double.TryParse(inputW2, out double w2) &&
-                v1>0 && w1>0 && v2>0 && w2>0)
+                v1 > 0 && w1 > 0 && v2 > 0 && w2 > 0)
             {
                 string res = (w1 / v1 > w2 / v2) ? " 1 is weighter than 2" : " 2 is weighter than 1";
 
                 Console.WriteLine(res);
             }
-            
+
             else { Console.WriteLine("V1, W1, V2 and W2 >0 !"); }
 
 
@@ -395,9 +398,9 @@ namespace _1400_exercises
             Console.WriteLine("enter resistance R2");
             string inputR2 = Console.ReadLine();
 
-            if(double.TryParse(inputR1, out double r1) &&
+            if (double.TryParse(inputR1, out double r1) &&
                 double.TryParse(inputR2, out double r2) &&
-                r1>0 && r2>0) 
+                r1 > 0 && r2 > 0)
             {
                 string result = (r1 > r2) ? "Current I1 is lower than I2" : "Current I1 is higher than I2";
                 Console.WriteLine(result);
@@ -418,7 +421,7 @@ namespace _1400_exercises
 
             if (double.TryParse(inputA, out double a) &&
                 double.TryParse(inputB, out double b) &&
-                double.TryParse(inputC, out double c) && a!=0)
+                double.TryParse(inputC, out double c) && a != 0)
             {
                 string result = (Math.Pow(b, 2) - 4 * a * c >= 0) ? "function has roots" : "function doesnt have roots";
                 Console.WriteLine(result);
@@ -469,7 +472,7 @@ namespace _1400_exercises
             Console.WriteLine("Enter birth month");
             string inputM = Console.ReadLine();
 
-            
+
 
             string currentM = (DateTime.Now.Month.ToString());
             int.TryParse(currentM, out int currentMonth);
@@ -481,9 +484,9 @@ namespace _1400_exercises
                 int.TryParse(inputM, out int birthMonth) &&
                 birthYear >= 0 && birthMonth >= 1 && birthMonth <= 12)
             {
-                
+
                 int result = currentYear - birthYear;
-                
+
 
                 if (birthMonth > currentMonth)
                 {
@@ -496,7 +499,7 @@ namespace _1400_exercises
             else
             {
                 Console.WriteLine("Year and month should be intereg month ffrom 1 to 12");
-            
+
             }
             Console.ReadLine();
         }
@@ -508,9 +511,9 @@ namespace _1400_exercises
             Console.WriteLine("Enter area of square");
             string sareaSquare = Console.ReadLine();
 
-            if (double.TryParse(sareaCircle,out double areaCircle) &&
+            if (double.TryParse(sareaCircle, out double areaCircle) &&
                 double.TryParse(sareaSquare, out double areaSquare) &&
-                areaCircle>0 && areaSquare > 0)
+                areaCircle > 0 && areaSquare > 0)
             {
                 double r = Math.Pow(areaCircle / Math.PI, 0.5);
                 double a = Math.Pow(areaSquare, 0.5);
@@ -541,9 +544,9 @@ namespace _1400_exercises
             {
                 double r = Math.Pow(areaCircle / Math.PI, 0.5);
                 double a = (Math.Pow((4 * areaTriangle) / Math.Pow(3, 0.5), 0.5));
-                double R = Math.Pow(3,0.5)/a;  
+                double R = Math.Pow(3, 0.5) / a;
 
-                string answerA = (r < a/(2*Math.Pow(2, 0.5))) ? "Circle could be in Triangle" : "Circle cannt be in Triangle";
+                string answerA = (r < a / (2 * Math.Pow(2, 0.5))) ? "Circle could be in Triangle" : "Circle cannt be in Triangle";
                 Console.WriteLine(answerA);
                 string answerB = (r > R) ? "Triangle could be in Circle" : "Triangle cannt be in Circle";
                 Console.WriteLine(answerB);
@@ -587,17 +590,17 @@ namespace _1400_exercises
 
                 // Compare A first and B second by x coordinate , min x should be left low and right high max x
 
-                double[] coordX = new double [4];
-                coordX[0] = first_a_x;                
-                coordX[1] = first_b_x;                
+                double[] coordX = new double[4];
+                coordX[0] = first_a_x;
+                coordX[1] = first_b_x;
                 coordX[2] = second_a_x;
                 coordX[3] = second_b_x;
 
                 double x_min = coordX[0];
                 double x_max = coordX[0];
-                for (int i = 0; i<coordX.Length; i++)
+                for (int i = 0; i < coordX.Length; i++)
                 {
-                    if (coordX[i]>x_max)
+                    if (coordX[i] > x_max)
                     {
                         x_max = coordX[i];
                     }
@@ -608,7 +611,7 @@ namespace _1400_exercises
                 }
 
                 double[] coordY = new double[4];
-                
+
                 coordY[0] = first_a_y;
                 coordY[1] = first_b_y;
                 coordY[2] = second_a_y;
@@ -640,12 +643,254 @@ namespace _1400_exercises
 
         }
 
+        public static void Exercise21()
+        {
+
+            Console.WriteLine("Enter x for point A, first square");
+            string inputfirstA_x = Console.ReadLine();
+            Console.WriteLine("Enter y for point A, first square");
+            string inputfirstA_y = Console.ReadLine();
+            Console.WriteLine("Enter side length a first square");
+            string inputfirstSideA = Console.ReadLine();
+            Console.WriteLine("Enter side length b first square");
+            string inputfirstSideB = Console.ReadLine();
+            Console.WriteLine("Enter x for point A, second square");
+            string inputsecondA_x = Console.ReadLine();
+            Console.WriteLine("Enter y for point A, second square");
+            string inputsecondA_y = Console.ReadLine();
+            Console.WriteLine("Enter side length a second square");
+            string inputsecondSideA = Console.ReadLine();
+            Console.WriteLine("Enter side length b second square");
+            string inputsecondSideB = Console.ReadLine();
+
+            if (double.TryParse(inputfirstA_x, out double first_a_x) &&
+                double.TryParse(inputfirstA_y, out double first_a_y) &&
+                double.TryParse(inputfirstSideA, out double firstSideA) &&
+                double.TryParse(inputfirstSideB, out double firstSideB) &&
+                double.TryParse(inputsecondA_x, out double second_a_x) &&
+                double.TryParse(inputsecondA_y, out double second_a_y) &&
+                double.TryParse(inputsecondSideA, out double secondSideA) &&
+                double.TryParse(inputsecondSideB, out double secondSideB)
+                )
+            {
+
+                // Compare A first and B second by x coordinate , min x should be left low and right high max x
+
+                double[] coordX = new double[4];
+                coordX[0] = first_a_x;
+                coordX[1] = first_a_x + firstSideA;
+                coordX[2] = second_a_x;
+                coordX[3] = second_a_x + secondSideA;
+
+                double x_min = coordX[0];
+                double x_max = coordX[0];
+                for (int i = 0; i < coordX.Length; i++)
+                {
+                    if (coordX[i] > x_max)
+                    {
+                        x_max = coordX[i];
+                    }
+                    if (coordX[i] < x_min)
+                    {
+                        x_min = coordX[i];
+                    }
+                }
+
+                double[] coordY = new double[4];
+
+                coordY[0] = first_a_y;
+                coordY[1] = first_a_y + firstSideB;
+                coordY[2] = second_a_y;
+                coordY[3] = second_a_y + secondSideB;
+
+                double y_min = coordY[0];
+                double y_max = coordY[0];
+                for (int i = 0; i < coordY.Length; i++)
+                {
+                    if (coordX[i] > y_max)
+                    {
+                        y_max = coordY[i];
+                    }
+                    if (coordY[i] < y_min)
+                    {
+                        y_min = coordY[i];
+                    }
+                }
+
+                Console.WriteLine("Coordinates A-{0},{1} - low left, B-{2},{3} - right high", x_min, y_min, x_max, y_max);
+            }
+
+            else
+            {
+                Console.WriteLine("Coordinates should be numbers");
+            }
+
+            Console.ReadLine();
+
+        }
+
+        public static void Exercise22()
+        {
+            Console.WriteLine("Enter integer m");
+            string stringM = Console.ReadLine();
+            Console.WriteLine("Enter integer n");
+            string stringN = Console.ReadLine();
+
+            if (int.TryParse(stringM, out int m) &&
+                int.TryParse(stringN, out int n))
+            {
+                if (m % n == 0)
+                {
+                    Console.WriteLine("Res {0}", m / n);
+                }
+
+                else
+                {
+                    Console.WriteLine("m%n != 0");
+                }
+            }
+
+            else { Console.WriteLine("m and n should be integer"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise23()
+        {
+            Console.WriteLine("Enter n");
+            string stringN = Console.ReadLine();
+            Console.WriteLine("Enter a");
+            string stringA = Console.ReadLine();
+
+            if (double.TryParse(stringN, out double n) &&
+                double.TryParse(stringA, out double a))
+            {
+                if (n % a == 0)
+                {
+                    Console.WriteLine("Res n%a==0");
+                }
+
+                else
+                {
+                    Console.WriteLine("n%a != 0");
+                }
+            }
+
+            else { Console.WriteLine("n and a should be numbers"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise24()
+        {
+            Console.WriteLine("Enter integer positive number");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) && n > 0)
+            {
+                if (n % 2 == 0)
+                {
+                    Console.WriteLine("Yes  n%2==0");
+                }
+                else { Console.WriteLine("n%2!=0"); }
+                if ((n + 3) % 10 == 0)
+                {
+                    Console.WriteLine("Last digit is 7");
+                }
+                else
+                {
+                    Console.WriteLine("Last digit is not 7");
+                }
+            }
+
+            else { Console.WriteLine("Number should be positive and integer"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise25()
+        {
+            Console.WriteLine("Enter number divided by 2");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) && n % 2 == 0)
+            {
+                Console.WriteLine("Next divideed by 2 = number {0}", n + 2);
+            }
+
+            else
+            {
+                Console.WriteLine("n should be number divided by 2");
+            }
+
+
+
+        }
+
+        public static void Exercise26()
+        {
+            Console.WriteLine("Enter two digits number");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n)&& n >=10 && n <= 99)
+            {
+                int firstDigit = n / 10;
+                int secondDigit = n - 10*(firstDigit);
+
+                if (firstDigit > secondDigit)
+                {
+                    Console.WriteLine("First digit {0} > Second digit {1}", firstDigit, secondDigit);
+                }
+                else if (firstDigit == secondDigit)
+                {
+                    Console.WriteLine("First digit {0} = Second digit {1}", firstDigit, secondDigit);
+                }
+                else
+                {
+                    Console.WriteLine("First digit {0} < Second digit {1}", firstDigit, secondDigit);
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("n should be number between 10 and 99");
+
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise27()
+        {
+            Console.WriteLine("Enter two digits number");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) && n >= 10 && n <= 99)
+            {
+                int firstDigit = n / 10;
+                int secondDigit = n - 10 * (firstDigit);
+
+                if (Math.Pow(n,2) == 4*(Math.Pow(firstDigit,3) + Math.Pow(secondDigit, 3)))
+                {
+                    Console.WriteLine("(ab)2 == 4*(a**3+ b**3)");
+                }
+                
+                else
+                {
+                    Console.WriteLine("(ab)2 != 4*(a**3+ b**3)");
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("n should be number between 10 and 99");
+
+            }
+            Console.ReadLine();
+        }
+
     }
 
-    class Program4 
-        {
-        static void Main(string[] args)
+    class Program4
     {
+        static void Main(string[] args)
+        {
             //Chapter4.Exercise1();
             //Chapter4.Exercise2();
             //Chapter4.Exercise3();
@@ -666,12 +911,20 @@ namespace _1400_exercises
             //Chapter4.Exercise17();
             //Chapter4.Exercise18();
             //Chapter4.Exercise19();
-            Chapter4.Exercise20();
+            //Chapter4.Exercise20();
+            //Chapter4.Exercise21();
+            //Chapter4.Exercise22();
+            //Chapter4.Exercise23();
+            //Chapter4.Exercise24();
+            //Chapter4.Exercise25();
+            //Chapter4.Exercise26();
+            Chapter4.Exercise27();
 
 
         }
     }
 }
+
         
 
 
