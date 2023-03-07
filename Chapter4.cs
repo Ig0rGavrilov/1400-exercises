@@ -8,6 +8,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace _1400_exercises
 {
@@ -995,6 +996,160 @@ namespace _1400_exercises
 
         }
 
+        public static void Exercise32()
+        {
+            Console.WriteLine("Enter 3 digits number");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) && n >= 100 && n <= 999)
+            {
+                int num100 = n / 100;
+                int num10 = (n - 100 * num100) / 10;
+                int num1 = (n % 100) % 10;
+                
+                string res = (Math.Pow(n,3) == (Math.Pow(num100, 3)+ Math.Pow(num10, 3)+ Math.Pow(num1, 3))) ? "==" : "!=";
+                Console.WriteLine("({0}{1}{2})**2 {3} {0}**3+{1}**3+{2}**3", num100, num10, num1, res);
+                
+            }
+            else
+            {
+                Console.WriteLine("n should be integer number between 100 and 999");
+            }
+            Console.ReadLine();
+        }
+        public static void Exercise33()
+        {
+            Console.WriteLine("Enter 3 digits number");
+            string inputN = Console.ReadLine();
+            Console.WriteLine("Enter a number");
+            string inputA = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) &&
+                int.TryParse(inputA, out int a) && 
+                n >= 100 && n <= 999)
+            {
+                int num100 = n / 100;
+                int num10 = (n - 100 * num100) / 10;
+                int num1 = (n % 100) % 10;
+
+                string resA = ((num100 +num10+ num1)/10!=0) ? "sum numbers is two digits number" : "sum numbers isnt two digits number";
+                Console.WriteLine(resA);
+                string resB = ((num100 * num10 * num1) / 100 != 0) ? "multplication numbers is three digits number" : "multplication numbers isnt three digits number";
+                Console.WriteLine(resB);
+                string resC = ((num100 * num10 * num1) > a) ? "multplication numbers > a" : "multplication numbers <= a";
+                Console.WriteLine(resC);
+                string resD = ((num100 + num10 + num1) %5==0) ? "sum numbers %5==0" : "sum numbers %5!=0";
+                Console.WriteLine(resD);
+                string resE = ((num100 + num10 + num1) % a == 0) ? "sum numbers %a ==0" : "sum numbers %a !=0";
+                Console.WriteLine(resE);
+            }
+            else
+            {
+                Console.WriteLine("n should be integer number between 100 and 999");
+            }
+            Console.ReadLine();
+
+        }
+
+        public static void Exercise34()
+        {
+            Console.WriteLine("Enter 3 digits number");
+            string inputN = Console.ReadLine();
+            
+
+            if (int.TryParse(inputN, out int n) &&               
+                n >= 100 && n <= 999)
+            {
+                int num100 = n / 100;
+                int num10 = (n - 100 * num100) / 10;
+                int num1 = (n % 100) % 10;
+
+                string resA = ((num100 == num10 &&  num1== num10)) ? "all digits are equal " : "all digits are not equal";
+                Console.WriteLine(resA);
+
+                if (num100==num10) { Console.WriteLine("First and second digits are equal"); }
+                if (num100 == num1) { Console.WriteLine("First and last digits are equal"); }
+                if (num10 == num1) { Console.WriteLine("Second and last digits are equal"); }
+
+
+            }
+            else
+            {
+                Console.WriteLine("n should be integer number between 100 and 999");
+            }
+            Console.ReadLine();
+
+        }
+
+        public static void Exercise35()
+        {
+            Console.WriteLine("Enter 4 digits number");
+            string inputN = Console.ReadLine();
+            Console.WriteLine("Enter number a");
+            string inputA = Console.ReadLine();
+
+
+
+            if (int.TryParse(inputN, out int n) &&
+                int.TryParse(inputA, out int a) &&
+                n >= 1000 && n <= 9999)
+            {
+                int num1000 = n / 1000;
+                int num100 = (n - 1000 * num1000)/100;
+                int num10 = ((n - 1000 * num1000) - num100*100)/10;
+                int num1 = n - 1000*num1000 - 100*num100-10*num10;
+
+                string resA = ((num100 + num100 == num10 + num1 )) ? "sum first and seccond digits == sum third and fourth digits " : "sum first and seccond digits != sum third and fourth digits";
+                Console.WriteLine(resA);
+                string resB = ((num100 + num100 + num10 + num1)%3==0) ? "sum digits %3 == 0 " : "sum digits %3 != 0";
+                Console.WriteLine(resB);
+                string resC = ((num100 *num100 * num10 * num1) % 4 == 0) ? "multiply digits %4 == 0 " : "multiply digits %4 == 0 ";
+                Console.WriteLine(resC);
+                string resD = ((num100 * num100 * num10 * num1) % a == 0) ? "multiply digits %a == 0 " : "multiply digits %a == 0 ";
+                Console.WriteLine(resD);
+
+            }
+
+            else { Console.WriteLine("n should be integer number between 1000 and 9999"); }
+
+            Console.ReadLine();
+        }
+
+        public static void Exercise36()
+        {
+            Console.WriteLine("Enter natural number");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n ) && n>0)
+            {
+                Console.WriteLine((n%2==0)?"last digit is  2": "last digit isnt  2");
+
+            }
+            else { Console.WriteLine("n should be positive integer number"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise37()
+        {
+            Console.Write("Enter number a: ");
+            string inputA = Console.ReadLine();
+            Console.Write("Enter number b: ");
+            string inputB = Console.ReadLine();
+             
+            if (double.TryParse(inputA,out double a) &&
+                double.TryParse(inputB, out double b) && a!=0 && b != 0)
+            {
+                Console.WriteLine((a%b==0)?"a is divided by b": "a isnt divided by b");
+                Console.WriteLine((b % a == 0) ? "b is divided by a" : "b isnt divided by a");
+            }
+            else
+            {
+                Console.WriteLine("a and b should be non zero numbers");
+            }
+            Console.ReadLine();
+        }
+
+
         class Program4
         {
             static void Main(string[] args)
@@ -1030,7 +1185,13 @@ namespace _1400_exercises
                 //Chapter4.Exercise28();
                 //Chapter4.Exercise29();
                 //Chapter4.Exercise30();
-                Chapter4.Exercise31();
+                //Chapter4.Exercise31();
+                //Chapter4.Exercise32();
+                //Chapter4.Exercise33();
+                //Chapter4.Exercise34();
+                //Chapter4.Exercise35();
+                //Chapter4.Exercise36();
+                Chapter4.Exercise37();
 
 
             }
@@ -1039,5 +1200,6 @@ namespace _1400_exercises
 }
 
         
+
 
 
