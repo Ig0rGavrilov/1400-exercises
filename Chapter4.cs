@@ -829,10 +829,10 @@ namespace _1400_exercises
             Console.WriteLine("Enter two digits number");
             string inputN = Console.ReadLine();
 
-            if (int.TryParse(inputN, out int n)&& n >=10 && n <= 99)
+            if (int.TryParse(inputN, out int n) && n >= 10 && n <= 99)
             {
                 int firstDigit = n / 10;
-                int secondDigit = n - 10*(firstDigit);
+                int secondDigit = n - 10 * (firstDigit);
 
                 if (firstDigit > secondDigit)
                 {
@@ -866,11 +866,11 @@ namespace _1400_exercises
                 int firstDigit = n / 10;
                 int secondDigit = n - 10 * (firstDigit);
 
-                if (Math.Pow(n,2) == 4*(Math.Pow(firstDigit,3) + Math.Pow(secondDigit, 3)))
+                if (Math.Pow(n, 2) == 4 * (Math.Pow(firstDigit, 3) + Math.Pow(secondDigit, 3)))
                 {
                     Console.WriteLine("(ab)2 == 4*(a**3+ b**3)");
                 }
-                
+
                 else
                 {
                     Console.WriteLine("(ab)2 != 4*(a**3+ b**3)");
@@ -885,42 +885,155 @@ namespace _1400_exercises
             Console.ReadLine();
         }
 
-    }
-
-    class Program4
-    {
-        static void Main(string[] args)
+        public static void Exercise28()
         {
-            //Chapter4.Exercise1();
-            //Chapter4.Exercise2();
-            //Chapter4.Exercise3();
-            //Chapter4.Exercise4();
-            //Chapter4.Exercise5();
-            //Chapter4.Exercise6a();
-            //Chapter4.Exercise6b();
-            //Chapter4.Exercise7();
-            //Chapter4.Exercise8();
-            //Chapter4.Exercise9();
-            //Chapter4.Exercise10();
-            // Chapter4.Exercise11();
-            //Chapter4.Exercise12();
-            //Chapter4.Exercise13();
-            //Chapter4.Exercise14();
-            //Chapter4.Exercise15();
-            //Chapter4.Exercise16();
-            //Chapter4.Exercise17();
-            //Chapter4.Exercise18();
-            //Chapter4.Exercise19();
-            //Chapter4.Exercise20();
-            //Chapter4.Exercise21();
-            //Chapter4.Exercise22();
-            //Chapter4.Exercise23();
-            //Chapter4.Exercise24();
-            //Chapter4.Exercise25();
-            //Chapter4.Exercise26();
-            Chapter4.Exercise27();
+            Console.WriteLine("Enter two digits number");
+            string inputN = Console.ReadLine();
+            Console.WriteLine("Enter a number");
+            string inputA = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) &&
+                int.TryParse(inputA, out int a) &&
+                n >= 10 && n <= 99)
+            {
+                int firstDigit = n / 10;
+                int secondDigit = n - 10 * (firstDigit);
+
+                bool res;
+                if ((firstDigit + secondDigit) / 10 > 0) { res = true; }
+                else { res = false; }
+
+                Console.WriteLine("sum digits is two digits number {0}", res);
+                string result = ((firstDigit + secondDigit) > a) ? "sum digits < a" : "sum digits > a";
+                Console.WriteLine(result);
+            }
+
+            else
+            {
+                Console.WriteLine("n should be between 10 and 99, a  - integer");
+            }
+
+        }
+
+        public static void Exercise29()
+        {
+            Console.WriteLine("Enter two digits number");
+            string inputN = Console.ReadLine();
+            Console.WriteLine("Enter a number");
+            string inputA = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) &&
+                int.TryParse(inputA, out int a) &&
+                n >= 10 && n <= 99)
+            {
+                int firstDigit = n / 10;
+                int secondDigit = n - 10 * (firstDigit);
+
+                bool res;
+                if ((firstDigit + secondDigit) / 3 == 0) { res = true; }
+                else { res = false; }
+
+                Console.WriteLine("sum digits is divided by 3 {0}", res);
+
+                
+                if ((firstDigit + secondDigit) % a == 0) { res = true; }
+                else { res = false; }
+
+                Console.WriteLine("sum digits is divided by a {0}", res);
+            }
+
+            else
+            {
+                Console.WriteLine("n should be between 10 and 99, a  - integer");
+            }
+
+        }
+
+        public static void Exercise30()
+        {
+            Console.WriteLine("Enter 3 digits number");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN , out int n) && n>=100 && n <= 999)
+            {
+                int num100 = n / 100;
+                int num10 = (n % 100) % 10;
+
+                string res = (num100 == num10) ? "Palindrom" : "isnt palindrom";
+                Console.WriteLine(res);
+            }
+            else
+            {
+                Console.WriteLine("n should be integer number between 100 and 999");
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise31()
+        {
+            Console.WriteLine("Enter 3 digits number");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) && n >= 100 && n <= 999)
+            {
+                int num100 = n / 100;
+                int num10 = (n - 100 * num100) / 10;
+                int num1 = (n % 100) % 10;
+
+                string resA = (num100 > num1) ? "First digit > last digit" : "First digit <= last digit";
+                Console.WriteLine(resA);
+                string resB = (num100 > num10) ? "First digit > second digit" : "First digit <= second digit";
+                Console.WriteLine(resB);
+                string resC = (num10 > num1) ? "Second digit > last digit" : "Second digit > last digit";
+                Console.WriteLine(resC);
+            }
+            else
+            {
+                Console.WriteLine("n should be integer number between 100 and 999");
+            }
+            Console.ReadLine();
+
+        }
+
+        class Program4
+        {
+            static void Main(string[] args)
+            {
+                //Chapter4.Exercise1();
+                //Chapter4.Exercise2();
+                //Chapter4.Exercise3();
+                //Chapter4.Exercise4();
+                //Chapter4.Exercise5();
+                //Chapter4.Exercise6a();
+                //Chapter4.Exercise6b();
+                //Chapter4.Exercise7();
+                //Chapter4.Exercise8();
+                //Chapter4.Exercise9();
+                //Chapter4.Exercise10();
+                // Chapter4.Exercise11();
+                //Chapter4.Exercise12();
+                //Chapter4.Exercise13();
+                //Chapter4.Exercise14();
+                //Chapter4.Exercise15();
+                //Chapter4.Exercise16();
+                //Chapter4.Exercise17();
+                //Chapter4.Exercise18();
+                //Chapter4.Exercise19();
+                //Chapter4.Exercise20();
+                //Chapter4.Exercise21();
+                //Chapter4.Exercise22();
+                //Chapter4.Exercise23();
+                //Chapter4.Exercise24();
+                //Chapter4.Exercise25();
+                //Chapter4.Exercise26();
+                //Chapter4.Exercise27();
+                //Chapter4.Exercise28();
+                //Chapter4.Exercise29();
+                //Chapter4.Exercise30();
+                Chapter4.Exercise31();
 
 
+            }
         }
     }
 }
