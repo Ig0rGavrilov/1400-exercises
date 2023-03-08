@@ -936,7 +936,7 @@ namespace _1400_exercises
 
                 Console.WriteLine("sum digits is divided by 3 {0}", res);
 
-                
+
                 if ((firstDigit + secondDigit) % a == 0) { res = true; }
                 else { res = false; }
 
@@ -955,7 +955,7 @@ namespace _1400_exercises
             Console.WriteLine("Enter 3 digits number");
             string inputN = Console.ReadLine();
 
-            if (int.TryParse(inputN , out int n) && n>=100 && n <= 999)
+            if (int.TryParse(inputN, out int n) && n >= 100 && n <= 999)
             {
                 int num100 = n / 100;
                 int num10 = (n % 100) % 10;
@@ -1006,10 +1006,10 @@ namespace _1400_exercises
                 int num100 = n / 100;
                 int num10 = (n - 100 * num100) / 10;
                 int num1 = (n % 100) % 10;
-                
-                string res = (Math.Pow(n,3) == (Math.Pow(num100, 3)+ Math.Pow(num10, 3)+ Math.Pow(num1, 3))) ? "==" : "!=";
+
+                string res = (Math.Pow(n, 3) == (Math.Pow(num100, 3) + Math.Pow(num10, 3) + Math.Pow(num1, 3))) ? "==" : "!=";
                 Console.WriteLine("({0}{1}{2})**2 {3} {0}**3+{1}**3+{2}**3", num100, num10, num1, res);
-                
+
             }
             else
             {
@@ -1025,20 +1025,20 @@ namespace _1400_exercises
             string inputA = Console.ReadLine();
 
             if (int.TryParse(inputN, out int n) &&
-                int.TryParse(inputA, out int a) && 
+                int.TryParse(inputA, out int a) &&
                 n >= 100 && n <= 999)
             {
                 int num100 = n / 100;
                 int num10 = (n - 100 * num100) / 10;
                 int num1 = (n % 100) % 10;
 
-                string resA = ((num100 +num10+ num1)/10!=0) ? "sum numbers is two digits number" : "sum numbers isnt two digits number";
+                string resA = ((num100 + num10 + num1) / 10 != 0) ? "sum numbers is two digits number" : "sum numbers isnt two digits number";
                 Console.WriteLine(resA);
                 string resB = ((num100 * num10 * num1) / 100 != 0) ? "multplication numbers is three digits number" : "multplication numbers isnt three digits number";
                 Console.WriteLine(resB);
                 string resC = ((num100 * num10 * num1) > a) ? "multplication numbers > a" : "multplication numbers <= a";
                 Console.WriteLine(resC);
-                string resD = ((num100 + num10 + num1) %5==0) ? "sum numbers %5==0" : "sum numbers %5!=0";
+                string resD = ((num100 + num10 + num1) % 5 == 0) ? "sum numbers %5==0" : "sum numbers %5!=0";
                 Console.WriteLine(resD);
                 string resE = ((num100 + num10 + num1) % a == 0) ? "sum numbers %a ==0" : "sum numbers %a !=0";
                 Console.WriteLine(resE);
@@ -1055,19 +1055,19 @@ namespace _1400_exercises
         {
             Console.WriteLine("Enter 3 digits number");
             string inputN = Console.ReadLine();
-            
 
-            if (int.TryParse(inputN, out int n) &&               
+
+            if (int.TryParse(inputN, out int n) &&
                 n >= 100 && n <= 999)
             {
                 int num100 = n / 100;
                 int num10 = (n - 100 * num100) / 10;
                 int num1 = (n % 100) % 10;
 
-                string resA = ((num100 == num10 &&  num1== num10)) ? "all digits are equal " : "all digits are not equal";
+                string resA = ((num100 == num10 && num1 == num10)) ? "all digits are equal " : "all digits are not equal";
                 Console.WriteLine(resA);
 
-                if (num100==num10) { Console.WriteLine("First and second digits are equal"); }
+                if (num100 == num10) { Console.WriteLine("First and second digits are equal"); }
                 if (num100 == num1) { Console.WriteLine("First and last digits are equal"); }
                 if (num10 == num1) { Console.WriteLine("Second and last digits are equal"); }
 
@@ -1095,15 +1095,15 @@ namespace _1400_exercises
                 n >= 1000 && n <= 9999)
             {
                 int num1000 = n / 1000;
-                int num100 = (n - 1000 * num1000)/100;
-                int num10 = ((n - 1000 * num1000) - num100*100)/10;
-                int num1 = n - 1000*num1000 - 100*num100-10*num10;
+                int num100 = (n - 1000 * num1000) / 100;
+                int num10 = ((n - 1000 * num1000) - num100 * 100) / 10;
+                int num1 = n - 1000 * num1000 - 100 * num100 - 10 * num10;
 
-                string resA = ((num100 + num100 == num10 + num1 )) ? "sum first and seccond digits == sum third and fourth digits " : "sum first and seccond digits != sum third and fourth digits";
+                string resA = ((num100 + num100 == num10 + num1)) ? "sum first and seccond digits == sum third and fourth digits " : "sum first and seccond digits != sum third and fourth digits";
                 Console.WriteLine(resA);
-                string resB = ((num100 + num100 + num10 + num1)%3==0) ? "sum digits %3 == 0 " : "sum digits %3 != 0";
+                string resB = ((num100 + num100 + num10 + num1) % 3 == 0) ? "sum digits %3 == 0 " : "sum digits %3 != 0";
                 Console.WriteLine(resB);
-                string resC = ((num100 *num100 * num10 * num1) % 4 == 0) ? "multiply digits %4 == 0 " : "multiply digits %4 == 0 ";
+                string resC = ((num100 * num100 * num10 * num1) % 4 == 0) ? "multiply digits %4 == 0 " : "multiply digits %4 == 0 ";
                 Console.WriteLine(resC);
                 string resD = ((num100 * num100 * num10 * num1) % a == 0) ? "multiply digits %a == 0 " : "multiply digits %a == 0 ";
                 Console.WriteLine(resD);
@@ -1120,9 +1120,9 @@ namespace _1400_exercises
             Console.WriteLine("Enter natural number");
             string inputN = Console.ReadLine();
 
-            if (int.TryParse(inputN, out int n ) && n>0)
+            if (int.TryParse(inputN, out int n) && n > 0)
             {
-                Console.WriteLine((n%2==0)?"last digit is  2": "last digit isnt  2");
+                Console.WriteLine((n % 2 == 0) ? "last digit is  2" : "last digit isnt  2");
 
             }
             else { Console.WriteLine("n should be positive integer number"); }
@@ -1135,11 +1135,11 @@ namespace _1400_exercises
             string inputA = Console.ReadLine();
             Console.Write("Enter number b: ");
             string inputB = Console.ReadLine();
-             
-            if (double.TryParse(inputA,out double a) &&
-                double.TryParse(inputB, out double b) && a!=0 && b != 0)
+
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputB, out double b) && a != 0 && b != 0)
             {
-                Console.WriteLine((a%b==0)?"a is divided by b": "a isnt divided by b");
+                Console.WriteLine((a % b == 0) ? "a is divided by b" : "a isnt divided by b");
                 Console.WriteLine((b % a == 0) ? "b is divided by a" : "b isnt divided by a");
             }
             else
@@ -1147,7 +1147,198 @@ namespace _1400_exercises
                 Console.WriteLine("a and b should be non zero numbers");
             }
             Console.ReadLine();
+
+
         }
+
+        public static void Exercise38()
+        {
+
+            Console.Write("enter a:");
+            string inputA = Console.ReadLine();
+            Console.Write("enter b (b<a): ");
+            string inputB = Console.ReadLine();
+            Console.Write("enter c:");
+            string inputC = Console.ReadLine();
+            Console.Write("enter d (d<c):");
+            string inputD = Console.ReadLine();
+
+
+
+            if (int.TryParse(inputA, out int a) &&
+                int.TryParse(inputB, out int b) &&
+                int.TryParse(inputC, out int c) &&
+                int.TryParse(inputD, out int d) &&
+                a > 0 && b > 0 && c > 0 && d > 0 && a > b)
+            {
+                Console.WriteLine(" a||c {0}", (a / c) * (b / d));
+                Console.WriteLine(" a||d {0}", (a / d) * (b / c));
+            }
+
+
+
+
+            else { Console.WriteLine("a, b, c and d should be non zero positive integer numbers"); }
+            Console.Read();
+
+        }
+
+        public static void Exercise39()
+        {
+            Console.Write("Ënter time n in minutes: ");
+            string inputT = Console.ReadLine();
+
+            if (int.TryParse(inputT , out int t)&& t>=0)
+            {
+                
+                if ((t - 5 * (t / 5)<=2)) { Console.WriteLine("Green"); }
+                else { Console.WriteLine("Red"); }
+                
+
+            }
+            else { Console.WriteLine("t should be non negative integer"); }
+        }
+
+        public static void Exercise40()
+        {
+            Console.WriteLine("Enter number n: ");
+            string inputN = Console.ReadLine();
+
+            if(double.TryParse(inputN, out double n))
+            {
+                if (n>=-5 && n < -3)
+                {
+                    Console.WriteLine("n={0} in interval (-5,3)", n);
+                }
+                else { Console.WriteLine("n={0} outside interval (-5,3)", n); }
+            }
+
+            else { Console.WriteLine("n should be number"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise41()
+        {
+            Console.WriteLine("Enter integer number:");
+            string inputN = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n))
+            {
+                string res = (n / 10 > 0 && n / 10 <10) ? "two digits number" : "non two digits number";
+                Console.WriteLine(res);
+            }
+        }
+
+        public static void Exercise42()
+        {
+            Console.WriteLine("Enter x: ");
+            string inputX = Console.ReadLine();
+            Console.WriteLine("Enter y: ");
+            string inputY = Console.ReadLine();
+
+            if (double.TryParse(inputX, out double x) &&
+                double.TryParse(inputY, out double y))
+            {
+                string varA = (x > 2 && y > 2) ? "Point in Area I" : "Point not in Area I";
+                Console.WriteLine("Variant a: "+ varA);
+                string varB = (x <- 2 && y <-4) ? "Point in Area I" : "Point not in Area I";
+                Console.WriteLine("Variant b: "+ varB);
+            }
+
+            else
+            {
+                Console.WriteLine("x and y should be numbers");
+
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise43()
+        {
+            Console.WriteLine("Enter x: ");
+            string inputX = Console.ReadLine();
+            Console.WriteLine("Enter y: ");
+            string inputY = Console.ReadLine();
+
+            if (double.TryParse(inputX, out double x) &&
+                double.TryParse(inputY, out double y))
+            {
+                string res = (x > 3 && y > 2) ? "Point in Area I" : "Point not in Area I";
+                Console.WriteLine(res);
+                
+            }
+
+            else
+            {
+                Console.WriteLine("x and y should be numbers");
+
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise44()
+        {
+            Console.WriteLine("Enter x: ");
+            string inputX = Console.ReadLine();
+            Console.WriteLine("Enter y: ");
+            string inputY = Console.ReadLine();
+
+            if (double.TryParse(inputX, out double x) &&
+                double.TryParse(inputY, out double y))
+            {
+                switch (x)
+                {
+                    case > 5:
+                        Console.WriteLine("Area I");
+                        break;
+                    case (< -1):
+                        Console.WriteLine("Area III");
+                        break;
+                    default:
+                        Console.WriteLine("Area II");
+                        break;
+                }
+
+            }
+
+            else
+            {
+                Console.WriteLine("x and y should be numbers");
+
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise45()
+        {
+            Console.WriteLine("Enter x: ");
+            string inputX = Console.ReadLine();
+
+            if (double.TryParse(inputX, out double x))
+            {
+                if (x<=5.7 && x >= -2.4) { Console.WriteLine("x**2 = {0}", Math.Pow(x,2)); }
+                else { Console.WriteLine("Result: 4"); }
+            }
+            else { Console.WriteLine("x should be number"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise46()
+        {
+            Console.WriteLine("Enter x: ");
+            string inputX = Console.ReadLine();
+
+            if (double.TryParse(inputX, out double x))
+            {
+                if (x <= 0.9 && x >= 0.2) { Console.WriteLine("sin(x) = {0:0.00}", Math.Sin(x)); }
+                else { Console.WriteLine("Result: 1"); }
+            }
+            else { Console.WriteLine("x should be number"); }
+            Console.ReadLine();
+        }
+
+
+
 
 
         class Program4
@@ -1191,7 +1382,16 @@ namespace _1400_exercises
                 //Chapter4.Exercise34();
                 //Chapter4.Exercise35();
                 //Chapter4.Exercise36();
-                Chapter4.Exercise37();
+                //Chapter4.Exercise37();
+                //Chapter4.Exercise38();
+                //Chapter4.Exercise39();
+                //Chapter4.Exercise40();
+                //Chapter4.Exercise41();
+                //Chapter4.Exercise42();
+                //Chapter4.Exercise43();
+                //Chapter4.Exercise44();
+                //Chapter4.Exercise45();
+                Chapter4.Exercise46();
 
 
             }
@@ -1199,7 +1399,8 @@ namespace _1400_exercises
     }
 }
 
-        
+
+
 
 
 
