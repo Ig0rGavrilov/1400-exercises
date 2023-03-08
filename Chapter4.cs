@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
@@ -1188,12 +1189,12 @@ namespace _1400_exercises
             Console.Write("Ënter time n in minutes: ");
             string inputT = Console.ReadLine();
 
-            if (int.TryParse(inputT , out int t)&& t>=0)
+            if (int.TryParse(inputT, out int t) && t >= 0)
             {
-                
-                if ((t - 5 * (t / 5)<=2)) { Console.WriteLine("Green"); }
+
+                if ((t - 5 * (t / 5) <= 2)) { Console.WriteLine("Green"); }
                 else { Console.WriteLine("Red"); }
-                
+
 
             }
             else { Console.WriteLine("t should be non negative integer"); }
@@ -1204,9 +1205,9 @@ namespace _1400_exercises
             Console.WriteLine("Enter number n: ");
             string inputN = Console.ReadLine();
 
-            if(double.TryParse(inputN, out double n))
+            if (double.TryParse(inputN, out double n))
             {
-                if (n>=-5 && n < -3)
+                if (n >= -5 && n < -3)
                 {
                     Console.WriteLine("n={0} in interval (-5,3)", n);
                 }
@@ -1224,7 +1225,7 @@ namespace _1400_exercises
 
             if (int.TryParse(inputN, out int n))
             {
-                string res = (n / 10 > 0 && n / 10 <10) ? "two digits number" : "non two digits number";
+                string res = (n / 10 > 0 && n / 10 < 10) ? "two digits number" : "non two digits number";
                 Console.WriteLine(res);
             }
         }
@@ -1240,9 +1241,9 @@ namespace _1400_exercises
                 double.TryParse(inputY, out double y))
             {
                 string varA = (x > 2 && y > 2) ? "Point in Area I" : "Point not in Area I";
-                Console.WriteLine("Variant a: "+ varA);
-                string varB = (x <- 2 && y <-4) ? "Point in Area I" : "Point not in Area I";
-                Console.WriteLine("Variant b: "+ varB);
+                Console.WriteLine("Variant a: " + varA);
+                string varB = (x < -2 && y < -4) ? "Point in Area I" : "Point not in Area I";
+                Console.WriteLine("Variant b: " + varB);
             }
 
             else
@@ -1265,7 +1266,7 @@ namespace _1400_exercises
             {
                 string res = (x > 3 && y > 2) ? "Point in Area I" : "Point not in Area I";
                 Console.WriteLine(res);
-                
+
             }
 
             else
@@ -1316,7 +1317,7 @@ namespace _1400_exercises
 
             if (double.TryParse(inputX, out double x))
             {
-                if (x<=5.7 && x >= -2.4) { Console.WriteLine("x**2 = {0}", Math.Pow(x,2)); }
+                if (x <= 5.7 && x >= -2.4) { Console.WriteLine("x**2 = {0}", Math.Pow(x, 2)); }
                 else { Console.WriteLine("Result: 4"); }
             }
             else { Console.WriteLine("x should be number"); }
@@ -1337,7 +1338,158 @@ namespace _1400_exercises
             Console.ReadLine();
         }
 
+        public static void Exercise47()
+        {
+            Console.WriteLine("Enter number a: ");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter number b: ");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter number c: ");
+            string inputC = Console.ReadLine();
 
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputC, out double c))
+            {
+                bool resA;
+                bool resB;
+                if (a<b && b<c) { resA = true; ; } else { resA = false; }
+                if (b>a && a>c) { resB = true; } else { resB = false; }
+                Console.WriteLine("Answer a: {0}", resA);
+                Console.WriteLine("Answer b: {0}", resB);
+            }
+            else { Console.WriteLine("a, b and c should be numbers"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise48()
+        {
+            Console.WriteLine("Enter number 1");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter number 2");
+            string inputB = Console.ReadLine();
+
+            if (int.TryParse(inputA, out int a) &&
+                int.TryParse(inputB, out int b))
+            {
+                if (a%b==0 || b%a==0) { Console.WriteLine("division can be a/b or b/a"); }
+                else { Console.WriteLine("cannt be divided one by another"); }
+            }
+
+            else
+            {
+                Console.WriteLine("Numbers should be non zero integer");
+            }
+        }
+
+        public static void Exercise49()
+        {
+            Console.WriteLine("Enter number between 10 and 99");
+            string inputN = Console.ReadLine();
+            Console.WriteLine("Enter number a");
+            string inputA = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n)&&
+                int.TryParse(inputA
+                , out int a) && n >9 && n < 100)
+            {
+                if ((n/10)==3 || (n-10*(n/10))==3)
+                {
+                    Console.WriteLine("number has 3");
+                }
+                if ((n / 10) == a || (n - 10 * (n / 10)) == a)
+                {
+                    Console.WriteLine("number has {0}", a);
+                }
+            }
+
+            else { Console.WriteLine("Number should be integer and between 10 and 99"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise50()
+        {
+            Console.WriteLine("Enter number between 10 and 99");
+            string inputN = Console.ReadLine();
+            
+
+            if (int.TryParse(inputN, out int n)
+              && n > 9 && n < 100)
+            {
+                if ((n / 10) == 4 || (n - 10 * (n / 10)) == 4 || (n / 10) == 7 || (n - 10 * (n / 10)) == 7)
+                {
+                    Console.WriteLine("number has 4 or 7");
+                }
+                if ((n / 10)%3==0 || (n - 10 * (n / 10))%3==0)
+                {
+                    Console.WriteLine("number has 3,6 or 9");
+                }
+            }
+
+            else { Console.WriteLine("Number should be integer and between 10 and 99"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise51()
+        {
+            Console.WriteLine("Enter number between 100 and 999");
+            string inputN = Console.ReadLine();
+            Console.WriteLine("Enter number a");
+            string inputA = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n)&&
+                int.TryParse(inputA, out int a) && 
+                n >99 && n < 1000)
+            {
+                int num100 = n / 100;
+                int num10 = (n - 100 * num100) / 10;
+                int num1 = (n - 100 * num100) % 10;
+
+                if (num100==6 || num10==6 || num1==6) { Console.WriteLine("Number has 6"); } else { Console.WriteLine("Number doesnt have 6"); }
+                if (num100 == a || num10 == a || num1 == a) { Console.WriteLine("Number has {0}", a); } else { Console.WriteLine("Number doesnt have {0}", a); }
+            }
+            else { Console.WriteLine("Number should be integer between 100 and 999"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise52()
+        {
+            Console.WriteLine("Enter number between 100 and 999");
+            string inputN = Console.ReadLine();
+            
+
+            if (int.TryParse(inputN, out int n) &&           
+                n > 99 && n < 1000)
+            {
+                int num100 = n / 100;
+                int num10 = (n - 100 * num100) / 10;
+                int num1 = (n - 100 * num100) % 10;
+
+                if (num100 == 6 || num10 == 6 || num1 == 6) { Console.WriteLine("Number has 6"); } else { Console.WriteLine("Number doesnt have 6"); }
+            }
+            else { Console.WriteLine("Number should be integer between 100 and 999"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise53()
+        {
+            Console.WriteLine("Enter number between 100 and 999");
+            string inputN = Console.ReadLine();
+
+
+            if (int.TryParse(inputN, out int n) &&
+                n > 99 && n < 1000)
+            {
+                int num100 = n / 100;
+                int num10 = (n - 100 * num100) / 10;
+                int num1 = (n - 100 * num100) % 10;
+
+                if (num100 == 4 || num10 == 4 || num1 == 4 || num100 == 7 || num10 == 7 || num1 == 7) { Console.WriteLine("Number has 4 or 7"); } else { Console.WriteLine("Number doesnt have 4 or 7"); }
+                if (num100%3==0 && num100!=0 || num10 % 3 == 0 && num10 != 0 || num10 % 3 == 0 && num1 != 0) { Console.WriteLine("Number has 3,6 or 9"); } else { Console.WriteLine("Number doesnt have 3,6 or 9"); }
+            }
+            else { Console.WriteLine("Number should be integer between 100 and 999"); }
+            Console.ReadLine();
+        }
 
 
 
@@ -1391,7 +1543,14 @@ namespace _1400_exercises
                 //Chapter4.Exercise43();
                 //Chapter4.Exercise44();
                 //Chapter4.Exercise45();
-                Chapter4.Exercise46();
+                //Chapter4.Exercise46();
+                //Chapter4.Exercise47();
+                //Chapter4.Exercise48();
+                //Chapter4.Exercise49();
+                //Chapter4.Exercise50();
+                //Chapter4.Exercise51();
+                //Chapter4.Exercise52();
+                Chapter4.Exercise53();
 
 
             }
