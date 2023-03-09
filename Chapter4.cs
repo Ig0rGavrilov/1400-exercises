@@ -1353,8 +1353,8 @@ namespace _1400_exercises
             {
                 bool resA;
                 bool resB;
-                if (a<b && b<c) { resA = true; ; } else { resA = false; }
-                if (b>a && a>c) { resB = true; } else { resB = false; }
+                if (a < b && b < c) { resA = true; ; } else { resA = false; }
+                if (b > a && a > c) { resB = true; } else { resB = false; }
                 Console.WriteLine("Answer a: {0}", resA);
                 Console.WriteLine("Answer b: {0}", resB);
             }
@@ -1372,7 +1372,7 @@ namespace _1400_exercises
             if (int.TryParse(inputA, out int a) &&
                 int.TryParse(inputB, out int b))
             {
-                if (a%b==0 || b%a==0) { Console.WriteLine("division can be a/b or b/a"); }
+                if (a % b == 0 || b % a == 0) { Console.WriteLine("division can be a/b or b/a"); }
                 else { Console.WriteLine("cannt be divided one by another"); }
             }
 
@@ -1389,11 +1389,11 @@ namespace _1400_exercises
             Console.WriteLine("Enter number a");
             string inputA = Console.ReadLine();
 
-            if (int.TryParse(inputN, out int n)&&
+            if (int.TryParse(inputN, out int n) &&
                 int.TryParse(inputA
-                , out int a) && n >9 && n < 100)
+                , out int a) && n > 9 && n < 100)
             {
-                if ((n/10)==3 || (n-10*(n/10))==3)
+                if ((n / 10) == 3 || (n - 10 * (n / 10)) == 3)
                 {
                     Console.WriteLine("number has 3");
                 }
@@ -1411,7 +1411,7 @@ namespace _1400_exercises
         {
             Console.WriteLine("Enter number between 10 and 99");
             string inputN = Console.ReadLine();
-            
+
 
             if (int.TryParse(inputN, out int n)
               && n > 9 && n < 100)
@@ -1420,7 +1420,7 @@ namespace _1400_exercises
                 {
                     Console.WriteLine("number has 4 or 7");
                 }
-                if ((n / 10)%3==0 || (n - 10 * (n / 10))%3==0)
+                if ((n / 10) % 3 == 0 || (n - 10 * (n / 10)) % 3 == 0)
                 {
                     Console.WriteLine("number has 3,6 or 9");
                 }
@@ -1437,15 +1437,15 @@ namespace _1400_exercises
             Console.WriteLine("Enter number a");
             string inputA = Console.ReadLine();
 
-            if (int.TryParse(inputN, out int n)&&
-                int.TryParse(inputA, out int a) && 
-                n >99 && n < 1000)
+            if (int.TryParse(inputN, out int n) &&
+                int.TryParse(inputA, out int a) &&
+                n > 99 && n < 1000)
             {
                 int num100 = n / 100;
                 int num10 = (n - 100 * num100) / 10;
                 int num1 = (n - 100 * num100) % 10;
 
-                if (num100==6 || num10==6 || num1==6) { Console.WriteLine("Number has 6"); } else { Console.WriteLine("Number doesnt have 6"); }
+                if (num100 == 6 || num10 == 6 || num1 == 6) { Console.WriteLine("Number has 6"); } else { Console.WriteLine("Number doesnt have 6"); }
                 if (num100 == a || num10 == a || num1 == a) { Console.WriteLine("Number has {0}", a); } else { Console.WriteLine("Number doesnt have {0}", a); }
             }
             else { Console.WriteLine("Number should be integer between 100 and 999"); }
@@ -1456,9 +1456,9 @@ namespace _1400_exercises
         {
             Console.WriteLine("Enter number between 100 and 999");
             string inputN = Console.ReadLine();
-            
 
-            if (int.TryParse(inputN, out int n) &&           
+
+            if (int.TryParse(inputN, out int n) &&
                 n > 99 && n < 1000)
             {
                 int num100 = n / 100;
@@ -1485,72 +1485,338 @@ namespace _1400_exercises
                 int num1 = (n - 100 * num100) % 10;
 
                 if (num100 == 4 || num10 == 4 || num1 == 4 || num100 == 7 || num10 == 7 || num1 == 7) { Console.WriteLine("Number has 4 or 7"); } else { Console.WriteLine("Number doesnt have 4 or 7"); }
-                if (num100%3==0 && num100!=0 || num10 % 3 == 0 && num10 != 0 || num10 % 3 == 0 && num1 != 0) { Console.WriteLine("Number has 3,6 or 9"); } else { Console.WriteLine("Number doesnt have 3,6 or 9"); }
+                if (num100 % 3 == 0 && num100 != 0 || num10 % 3 == 0 && num10 != 0 || num10 % 3 == 0 && num1 != 0) { Console.WriteLine("Number has 3,6 or 9"); } else { Console.WriteLine("Number doesnt have 3,6 or 9"); }
             }
             else { Console.WriteLine("Number should be integer between 100 and 999"); }
             Console.ReadLine();
         }
 
+        public static void Exercise54()
+        {
+            Console.WriteLine("Enter number between 1000 and 9999");
+            string inputN = Console.ReadLine();
+            Console.WriteLine("Enter number b between 0 and 9 ");
+            string inputB = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) && n >= 1000 && n <= 9999 &&
+                int.TryParse(inputB, out int b) && b >= 0 && b <= 9)
+            {
+                int num1000 = n / 1000;
+                int num100 = (n - 1000 * num1000) / 100;
+                int num10 = ((n - 1000 * num1000) - 100 * num100) / 10;
+                int num1 = n % 10;
+
+                if (num1000 == 4 || num100 == 4 || num10 == 4 || num1 == 4 || num1000 == 7 || num100 == 7 || num10 == 7 || num1 == 7) { Console.WriteLine("Number {0} has digit 4 or 7", n); } else { Console.WriteLine("Number {0} doesnt have digit 4 or 7", n); }
+                if (num1000 == b || num100 == b || num10 == b || num1 == b) { Console.WriteLine("Number {0} has digit {1}", n, b); } else { Console.WriteLine("Number {0} doesnt have digit {1}", n, b); }
+            }
+            else { Console.WriteLine("Number n should be between 1000 and 9999");
+                Console.WriteLine("Number b should be between 0 and 9");
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise55()
+        {
+            Console.WriteLine("Enter number between 1000 and 9999");
+            string inputN = Console.ReadLine();
+            Console.WriteLine("Enter number b between 0 and 9 ");
+            string inputB = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) && n >= 1000 && n <= 9999 &&
+                int.TryParse(inputB, out int b) && b >= 0 && b <= 9)
+            {
+                int num1000 = n / 1000;
+                int num100 = (n - 1000 * num1000) / 100;
+                int num10 = ((n - 1000 * num1000) - 100 * num100) / 10;
+                int num1 = n % 10;
+
+                if (num1000 == 2 || num100 == 2 || num10 == 2 || num1 == 2 || num1000 == 7 || num100 == 7 || num10 == 7 || num1 == 7) { Console.WriteLine("Number {0} has digit 4 or 7", n); } else { Console.WriteLine("Number {0} doesnt have digit 4 or 7", n); }
+                if (num1000 % 3 == 0 && num1000 != 0 || num100 % 3 == 0 && num100 != 0 || num10 % 3 == 0 && num10 != 0 || num1 % 3 == 0 && num1 != 0) { Console.WriteLine("Number {0} has digit {1}", n, b); } else { Console.WriteLine("Number {0} doesnt have digit {1}", n, b); }
+            }
+            else
+            {
+                Console.WriteLine("Number n should be between 1000 and 9999");
+                Console.WriteLine("Number b should be between 0 and 9");
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise56()
+        {
+            Console.WriteLine("Enter number between 1000 and 9999");
+            string inputN = Console.ReadLine();
+
+
+            if (int.TryParse(inputN, out int n) && n >= 1000 && n <= 9999)
+            {
+                int num1000 = n / 1000;
+                int num100 = (n - 1000 * num1000) / 100;
+                int num10 = ((n - 1000 * num1000) - 100 * num100) / 10;
+                int num1 = n % 10;
+
+                string result = (num1000 == num1 && num100 == num10) ? "Number is symmetrical" : "Number is not symmetrical";
+                Console.WriteLine(result);
+
+
+            }
+            else
+            {
+                Console.WriteLine("Number n should be between 1000 and 9999");
+
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise57()
+        {
+            Console.WriteLine("Enter number a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter number b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter number c:");
+            string inputC = Console.ReadLine();
+            Console.WriteLine("Enter number d:");
+            string inputD = Console.ReadLine();
+
+            if (int.TryParse(inputA, out int a) && a>0 &&
+                int.TryParse(inputB, out int b) && b > 0 &&
+                int.TryParse(inputC, out int c) && c > 0 &&
+                int.TryParse(inputD, out int d) && d > 0)
+            {
+                //bool result1 = (a%b==c) ? true : false;
+                Console.WriteLine("variant a :"  + (a % b == c));
+                Console.WriteLine("variant b :" + (a % b == d));
+
+            }
+
+            else { Console.WriteLine("a, b , c and d should be positive integer numbers"); }
+        }
+
+        public static void Exercise58()
+        {
+            Console.WriteLine("Enter number a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter number b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter number c:");
+            string inputC = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputC, out double c))
+            {
+
+                if (a==b || a==c || b == c) { Console.WriteLine("one pair or more same numbers exists"); } else { { Console.WriteLine("one pair or more same numbers doesnt exist"); } }
+            }
+            else { Console.WriteLine("a, b and c should be numbers"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise59()
+        {
+            Console.WriteLine("Enter number a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter number b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter number c:");
+            string inputC = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputC, out double c))
+            {
+                
+                if (a == b && a == c ) { Console.WriteLine("Triangle has 3 side with same length"); }
+                else if (a == b || a == c || b == c) { Console.WriteLine("Triangle has 2 side with same length"); }
+
+            }
+            else { Console.WriteLine("a, b and c should be numbers"); }
+            Console.ReadLine();
+
+        }
+
+        public static void Exercise60()
+        {
+            Console.WriteLine("Enter height of person 1:");
+            string inputPerson1 = Console.ReadLine();
+            Console.WriteLine("Enter height of person 2:");
+            string inputPerson2 = Console.ReadLine();
+            Console.WriteLine("Enter height of person 3");
+            string inputPerson3 = Console.ReadLine();
+
+            if (double.TryParse(inputPerson1, out double p1) &&
+                double.TryParse(inputPerson2, out double p2) &&
+                double.TryParse(inputPerson3, out double p3) &&
+                p1>0 && p2>0 && p3>0)
+            {
+                string result = (p1 == p2 && p2 == p3) ? "They are have same height" : "They are not have same height";
+                Console.WriteLine(result);
+            }
+            else { Console.WriteLine("heights should be non zero positive numbers"); }
+            Console.ReadLine();
+        }
+        public static void Exercise61()
+        {
+            Console.WriteLine("Enter a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter c:");
+            string inputC = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) && a > 0 &&
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputC, out double c)                ) 
+            {
+                double D = Math.Pow(b, 2) - 4 * a * c;
+
+                if (D==0) { Console.WriteLine("root 1 = root 2 = {0}",  ((-b)/(2*a))); }
+                else if (D>0) { Console.WriteLine("root 1 = {0:0.00} root 2 = {1:0.00}", ((-b -Math.Pow(D, 0.5)) / (2 * a)), ((-b + Math.Pow(D, 0.5)) / (2 * a))); }
+                else { Console.WriteLine("Doesnt have real roots"); }
+            }
+            else { Console.WriteLine("a should be non zero, b and c should be numbers"); }
+        }
+        public static void Exercise62()
+        {
+            Console.WriteLine("Enter a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter c:");
+            string inputC = Console.ReadLine();
+            Console.WriteLine("Enter d:");
+            string inputD = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) && 
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputC, out double c) &&
+                double.TryParse(inputD, out double d) &&
+                a>0 && b>0 && c>0 && d > 0)
+            {
+                if ((a >= c && b >= d) || (a >= d && b >= c)) { Console.WriteLine("AxB could be in CxD"); } else { Console.WriteLine("AxB cannt be in CxD"); }
+            }
+ 
+            else { Console.WriteLine("a,b,c and d should be non zero numbers"); }
+         }
+
+
+        public static void Exercise63()
+        {
+            Console.WriteLine("Enter a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter c:");
+            string inputC = Console.ReadLine();
+            Console.WriteLine("Enter d:");
+            string inputD = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputC, out double c) &&
+                double.TryParse(inputD, out double d) &&
+                a > 0 && b > 0 && c > 0 && d > 0)
+            {
+                if ((a >= c+1 && b >= d+1) || (a >= d+1 && b >= c+1)) { Console.WriteLine("AxB could be in CxD"); } else { Console.WriteLine("AxB cannt be in CxD"); }
+            }
+
+            else { Console.WriteLine("a,b,c and d should be non zero numbers"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise64()
+        {
+            Console.WriteLine("Enter a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter d:");
+            string inputD = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputD, out double d) &&
+                a > 0 && b > 0 && d > 0)
+            {
+                if (d+1<=a || d+1<=b) { Console.WriteLine("d could be insert in a,b"); } else  { Console.WriteLine("d could be insert in a,b"); } 
+            }
+            else { Console.WriteLine("a,b,c and d should be non zero numbers"); }
+            Console.ReadLine();
+        }
 
 
         class Program4
         {
             static void Main(string[] args)
             {
-                //Chapter4.Exercise1();
-                //Chapter4.Exercise2();
-                //Chapter4.Exercise3();
-                //Chapter4.Exercise4();
-                //Chapter4.Exercise5();
-                //Chapter4.Exercise6a();
-                //Chapter4.Exercise6b();
-                //Chapter4.Exercise7();
-                //Chapter4.Exercise8();
-                //Chapter4.Exercise9();
-                //Chapter4.Exercise10();
-                // Chapter4.Exercise11();
-                //Chapter4.Exercise12();
-                //Chapter4.Exercise13();
-                //Chapter4.Exercise14();
-                //Chapter4.Exercise15();
-                //Chapter4.Exercise16();
-                //Chapter4.Exercise17();
-                //Chapter4.Exercise18();
-                //Chapter4.Exercise19();
-                //Chapter4.Exercise20();
-                //Chapter4.Exercise21();
-                //Chapter4.Exercise22();
-                //Chapter4.Exercise23();
-                //Chapter4.Exercise24();
-                //Chapter4.Exercise25();
-                //Chapter4.Exercise26();
-                //Chapter4.Exercise27();
-                //Chapter4.Exercise28();
-                //Chapter4.Exercise29();
-                //Chapter4.Exercise30();
-                //Chapter4.Exercise31();
-                //Chapter4.Exercise32();
-                //Chapter4.Exercise33();
-                //Chapter4.Exercise34();
-                //Chapter4.Exercise35();
-                //Chapter4.Exercise36();
-                //Chapter4.Exercise37();
-                //Chapter4.Exercise38();
-                //Chapter4.Exercise39();
-                //Chapter4.Exercise40();
-                //Chapter4.Exercise41();
-                //Chapter4.Exercise42();
-                //Chapter4.Exercise43();
-                //Chapter4.Exercise44();
-                //Chapter4.Exercise45();
-                //Chapter4.Exercise46();
-                //Chapter4.Exercise47();
-                //Chapter4.Exercise48();
-                //Chapter4.Exercise49();
-                //Chapter4.Exercise50();
-                //Chapter4.Exercise51();
+
+
+                Chapter4.Exercise64();
+                //Chapter4.Exercise63();
+                //Chapter4.Exercise62();
+                //Chapter4.Exercise61();
+                //Chapter4.Exercise60();
+                //Chapter4.Exercise59();
+                //Chapter4.Exercise58();
+                //Chapter4.Exercise57();
+                //Chapter4.Exercise56();
+                //Chapter4.Exercise55();
+                //Chapter4.Exercise54();
+                //Chapter4.Exercise53();
                 //Chapter4.Exercise52();
-                Chapter4.Exercise53();
+                //Chapter4.Exercise51();
+                //Chapter4.Exercise50();
+                //Chapter4.Exercise49();
+                //Chapter4.Exercise48();
+                //Chapter4.Exercise47();
+                //Chapter4.Exercise46();
+                //Chapter4.Exercise45();
+                //Chapter4.Exercise44();
+                //Chapter4.Exercise43();
+                //Chapter4.Exercise42();
+                //Chapter4.Exercise41();
+                //Chapter4.Exercise40();
+                //Chapter4.Exercise39();
+                //Chapter4.Exercise38();
+                //Chapter4.Exercise37();
+                //Chapter4.Exercise36();
+                //Chapter4.Exercise35();
+                //Chapter4.Exercise34();
+                //Chapter4.Exercise33();
+                //Chapter4.Exercise32();
+                //Chapter4.Exercise31();
+                //Chapter4.Exercise30();
+                //Chapter4.Exercise29();
+                //Chapter4.Exercise28();
+                //Chapter4.Exercise27();
+                //Chapter4.Exercise26();
+                //Chapter4.Exercise25();
+                //Chapter4.Exercise24();
+                //Chapter4.Exercise23();
+                //Chapter4.Exercise22();
+                //Chapter4.Exercise21();
+                //Chapter4.Exercise20();
+                //Chapter4.Exercise19();
+                //Chapter4.Exercise18();
+                //Chapter4.Exercise17();
+                //Chapter4.Exercise16();
+                //Chapter4.Exercise15();
+                //Chapter4.Exercise14();
+                //Chapter4.Exercise13();
+                //Chapter4.Exercise12();
+                // Chapter4.Exercise11();
+                //Chapter4.Exercise10();
+                //Chapter4.Exercise9();
+                //Chapter4.Exercise8();
+                //Chapter4.Exercise7();
+                //Chapter4.Exercise6b();
+                //Chapter4.Exercise6a();
+                //Chapter4.Exercise5();
+                //Chapter4.Exercise4();
+                //Chapter4.Exercise3();
+                //Chapter4.Exercise2();
+                //Chapter4.Exercise1();
+
 
 
             }
