@@ -1964,6 +1964,83 @@ namespace _1400_exercises
 
         }
 
+        public static void Exercise72()
+        {
+            Console.WriteLine("Enter x first rectangle");
+            string inputR1X = Console.ReadLine();
+            Console.WriteLine("Enter y second rectangle");
+            string inputR1Y = Console.ReadLine();
+            Console.WriteLine("Enter length side 1: ");
+            string inputR1D1 = Console.ReadLine();
+            Console.WriteLine("Enter length side 2: ");
+            string inputR1D2 = Console.ReadLine();
+            Console.WriteLine("Enter x second rectangle");
+            string inputR2X = Console.ReadLine();
+            Console.WriteLine("Enter y second rectangle");
+            string inputR2Y = Console.ReadLine();
+            Console.WriteLine("Enter length side 1: ");
+            string inputR2D1 = Console.ReadLine();
+            Console.WriteLine("Enter length side 2: ");
+            string inputR2D2 = Console.ReadLine();
+
+            if (double.TryParse(inputR1X, out double r1x) &&
+                double.TryParse(inputR1Y, out double r1y) &&
+                double.TryParse(inputR1D1, out double r1d1) &&
+                double.TryParse(inputR1D2, out double r1d2) &&
+                double.TryParse(inputR2X, out double r2x) &&
+                double.TryParse(inputR2Y, out double r2y) &&
+                double.TryParse(inputR2D1, out double r2d1) &&
+                double.TryParse(inputR2D2, out double r2d2) &&
+                r1d1>0 && r1d2>0 && r2d1>0 && r2d2 > 0)
+            {
+
+            }
+
+            else
+            {
+                Console.WriteLine("Input should be number and distances could be >0");
+            }
+            Console.ReadLine();
+                
+
+        }
+
+        public static void Exercise73()
+        {
+            Console.WriteLine("Enter 2-digit number a2a1");
+            string inputN = Console.ReadLine();
+            Console.WriteLine("Enter 1-number b");
+            string inputB = Console.ReadLine();
+
+            if (int.TryParse(inputN, out int n) &&
+                int.TryParse(inputB, out int b) &&
+                n>=10 && n<=99 &&b>=0 && b <= 9)
+            {
+                Console.WriteLine("Subtract {0}-{1}-{2} = {3}", n/10, n%10, b, n/10 - n%10 -b);
+            }
+
+            else { Console.WriteLine("numbers should be integer , 10<=a2a1<=99, 0<=b<=9"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise74()
+        {
+            Console.WriteLine("Enter 2-digit number a2a1");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter 2-number b2b1");
+            string inputB = Console.ReadLine();
+
+            if (int.TryParse(inputA, out int a) &&
+                int.TryParse(inputB, out int b) &&
+                a >= 10 && b <= 99 && b >= 10 && b <= 99)
+            {
+                Console.WriteLine("Subtract {0}-{1}-{2}-{3}= {4}", a / 10, a % 10, b/10, b%10, a / 10 - a % 10 - b / 10-b % 10);
+            }
+
+            else { Console.WriteLine("numbers should be integer , 10<=a2a1<=99, 10<=b<=99"); }
+            Console.ReadLine();
+        }
+
 
 
 
@@ -1971,7 +2048,10 @@ namespace _1400_exercises
         {
             static void Main(string[] args)
             {
-                Chapter4.Exercise70();
+                Chapter4.Exercise73();
+                //Chapter4.Exercise72();
+                //Chapter4.Exercise71();
+                //Chapter4.Exercise70();
                 //Chapter4.Exercise69();
                 //Chapter4.Exercise68();
                 //Chapter4.Exercise67();
