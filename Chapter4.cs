@@ -1740,18 +1740,244 @@ namespace _1400_exercises
             {
                 if (d+1<=a || d+1<=b) { Console.WriteLine("d could be insert in a,b"); } else  { Console.WriteLine("d could be insert in a,b"); } 
             }
-            else { Console.WriteLine("a,b,c and d should be non zero numbers"); }
+            else { Console.WriteLine("a,b and d should be non zero numbers"); }
             Console.ReadLine();
         }
+
+        public static void Exercise65()
+        {
+            Console.WriteLine("Enter a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter c:");
+            string inputC = Console.ReadLine();
+            Console.WriteLine("Enter x:");
+            string inputX = Console.ReadLine();
+            Console.WriteLine("Enter y:");
+            string inputY = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputB, out double b) &&
+                double.TryParse(inputC, out double c) &&
+                double.TryParse(inputX, out double x) &&
+                double.TryParse(inputY, out double y) &&
+                a > 0 && b > 0 && c > 0 && x > 0 && y>0)
+            {
+                if (x >= a && (y >=b  || y>=c)) { Console.WriteLine("Brick {0}x{1}x{2} can be insert to {3}x{4}", a,b,c,x,y); }
+                
+                else if (x >= b && (y >= a || y >= c)) { Console.WriteLine("Brick {0}x{1}x{2} can be insert to {3}x{4}", a, b, c, x, y); }
+                
+                else if (x >= c && (y >= a || y >= b)) { Console.WriteLine("Brick {0}x{1}x{2} can be insert to {3}x{4}", a, b, c, x, y); }
+                else { Console.WriteLine("Brick {0}x{1}x{2} can be insert to {3}x{4}", a, b, c, x, y); }
+
+            }
+
+            else { Console.WriteLine("a,b,c and x,y should be non zero numbers"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise66()
+        {
+            Console.WriteLine("Enter a1:");
+            string inputA1 = Console.ReadLine();
+            Console.WriteLine("Enter a2:");
+            string inputA2 = Console.ReadLine();
+            Console.WriteLine("Enter a3:");
+            string inputA3 = Console.ReadLine();
+            Console.WriteLine("Enter b1:");
+            string inputB1 = Console.ReadLine();
+            Console.WriteLine("Enter b2:");
+            string inputB2 = Console.ReadLine();
+            Console.WriteLine("Enter b3:");
+            string inputB3 = Console.ReadLine();
+
+            if (double.TryParse(inputA1, out double a1) &&
+                double.TryParse(inputA2, out double a2) &&
+                double.TryParse(inputA3, out double a3) &&
+                double.TryParse(inputB1, out double b1) &&
+                double.TryParse(inputB2, out double b2) &&
+                double.TryParse(inputB3, out double b3) &&
+                a1>0 && a2>0 && a3>0 && b1>0 && b2>0 && b3>0)
+            {
+                if ((a1>=b1 && a2>=b2 && a3>=b3) || (a1 >= b2 && a2 >= b1 && a3 >= b3) || (a1 >= b1 && a2 >= b3 && a3 >= b2)) { Console.WriteLine("Could be"); }
+                else { Console.WriteLine("b1xb2xb3 cannt be in a1xa2xa3"); }
+
+
+
+            }
+
+            else { Console.WriteLine("a1,a2,a3 and b1,b2,b3 should be non zero numbers"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise67()
+        {
+            Console.WriteLine("Enter 6-digit number");
+            string inputN = Console.ReadLine();
+
+            int[] digits = new int[6];
+
+            for (int i=0; i<digits.Length; i++)
+            {
+                digits[i] = inputN[i];
+            }
+
+            if (digits[0]+ digits[1]+ digits[2]== digits[3] + digits[4] + digits[5]) { Console.WriteLine("Lucky number"); }
+            else { Console.WriteLine("usual number"); }
+        }
+
+        public static void Exercise68()
+        {
+            int year;
+
+            Console.WriteLine("Enter year");
+            year = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(check_y(year));
+        }
+
+        static bool check_y(int year)
+        {
+            bool b;
+            if (year % 100 == 0 && year % 400 == 0)
+            {
+                b = true;
+                return b;
+            }
+            else if (year % 4 == 0 && year % 100 != 0)
+            {
+                b = true;
+                return b;
+            }
+            else
+            {
+                b = false;
+                return b;
+            }
+        }
+
+        public static void Exercise69()
+        {
+            Console.WriteLine("Enter a:");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter b:");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter c:");
+            string inputC = Console.ReadLine();
+            Console.WriteLine("Enter d:");
+            string inputD = Console.ReadLine();
+            Console.WriteLine("Enter e:");
+            string inputE = Console.ReadLine();
+            
+
+            if (int.TryParse(inputA, out int a) &&
+                int.TryParse(inputB, out int b) &&
+                int.TryParse(inputC, out int c) &&
+                int.TryParse(inputD, out int d) &&
+                int.TryParse(inputE, out int e) &&
+                a > 0 && b > 0 && c > 0 && d > 0 && e > 0 && 
+                a>b && c>d && d > e)
+            {
+                int cd = (a / c) * (b / d);
+                int dc = (a / d) * (b / d);
+                int ce = (a / c) * (b / e);
+                int ec = (a / e) * (b / c);
+                int de = (a / d) * (b / e);
+                int ed = (a / e) * (b / d);
+
+                int res = Math.Max(ed, Math.Max(de, Math.Max(ec, Math.Max(ce, Math.Max(cd, dc))))); // just for fun
+
+                Console.WriteLine("Max possible : {0}", res);
+
+
+
+
+
+            }
+            else { Console.WriteLine("a,b,c,d,e should be positive non zero integer numbers"); }
+            Console.ReadLine();
+        }
+
+        public static void Exercise70()
+        {
+            Console.WriteLine("Enter k  between 1 and 365");
+            string inputK = Console.ReadLine();
+
+            if (int.TryParse(inputK, out int k))
+            {
+                int day;
+                if (k > 7) { day = k / 7; } else { day = k; }
+                switch (day)
+                {
+                    case 1:                        
+                        Console.WriteLine("Monday");break;
+                    case 2:
+                        Console.WriteLine("Tuesday"); break;
+                    case 3:
+                        Console.WriteLine("Wednesday"); break;
+                    case 4:
+                        Console.WriteLine("Thursday"); break;
+                    case 5:
+                        Console.WriteLine("Friday"); break;
+                    case 6:
+                        Console.WriteLine("Saturday"); break;
+                    case 7:
+                        Console.WriteLine("Sunday"); break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("K should be integer between 1 and 365");
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise71()
+        {
+            Console.WriteLine("Enter alpha");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter V0");
+            string inputV0 = Console.ReadLine();
+            Console.WriteLine("Enter R");
+            string inputR = Console.ReadLine();
+            Console.WriteLine("Enter H");
+            string inputH = Console.ReadLine();
+            Console.WriteLine("Enter P");
+            string inputP = Console.ReadLine();
+
+            if (double.TryParse(inputA, out double a) &&
+                double.TryParse(inputV0, out double v0) &&
+                double.TryParse(inputR, out double R) &&
+                double.TryParse(inputH, out double H) &&
+                double.TryParse(inputP, out double P) &&
+                a>0&& v0>0 && R>0 && H>0 && P > 0)
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("variables should be non negative numbers");
+
+            }
+            Console.ReadLine();
+
+        }
+
+
 
 
         class Program4
         {
             static void Main(string[] args)
             {
-
-
-                Chapter4.Exercise64();
+                Chapter4.Exercise70();
+                //Chapter4.Exercise69();
+                //Chapter4.Exercise68();
+                //Chapter4.Exercise67();
+                //Chapter4.Exercise66();
+                //Chapter4.Exercise65();
+                //Chapter4.Exercise64();
                 //Chapter4.Exercise63();
                 //Chapter4.Exercise62();
                 //Chapter4.Exercise61();
