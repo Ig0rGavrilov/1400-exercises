@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters;
 using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
@@ -1993,7 +1995,26 @@ namespace _1400_exercises
                 double.TryParse(inputR2D2, out double r2d2) &&
                 r1d1>0 && r1d2>0 && r2d1>0 && r2d2 > 0)
             {
+                // First quest A in B
+                if (r1d1*r1d2<=r2d1*r2d2)
+                {
+                    // Check 
+                    if (r2x <=r1x && r2y <= r1y && r2x+r2d1 >= r1x+r1d1 && r2y + r2d2 >= r1y+r1d2 ) { Console.WriteLine("Rectangle A in Rectangle B"); }
+                    else { Console.WriteLine("Rectangle A not in Rectangle B"); }
+                }
+                else { Console.WriteLine("Rectangle A not in Rectangle B"); }
 
+                // First quest B in A
+                if (r1d1 * r1d2 >= r2d1 * r2d2)
+                {
+                    // Check 
+                    if (r2x >= r1x && r2y >= r1y && r2x + r2d1 <= r1x + r1d1 && r2y + r2d2 <= r1y + r1d2) { Console.WriteLine("Rectangle A in Rectangle B"); }
+                    else { Console.WriteLine("Rectangle A not in Rectangle B"); }
+                }
+
+                else { Console.WriteLine("Rectangle B not in Rectangle A"); }
+
+               
             }
 
             else
@@ -2041,6 +2062,133 @@ namespace _1400_exercises
             Console.ReadLine();
         }
 
+        public static void Exercise75()
+        {
+            //Console.WriteLine("Eneter number a3a2a1");
+            //string inputA3A2A1 = Console.ReadLine();
+            //Console.WriteLine("Eneter number b2b1");
+            //string inputB2B1 = Console.ReadLine();
+
+            //if (int.TryParse(inputA3A2A1, out int a3a2a1) &&
+            //    int.TryParse(inputB2B1, out int b2b1) &&
+            //    a3a2a1 >=100 && a3a2a1<=999 && b2b1>=10 && b2b1 <= 99)
+            //{
+            //    Console.WriteLine(999/100);
+            //    Console.WriteLine(100 / 100);
+            //}
+
+            //else
+            //{
+            //    Console.WriteLine("a3a2a1 shoudl be integer between 100 and 999, b2b1 should be integer between 10 and 99");
+            //}
+
+            // Dont understand task ?????
+
+            int a3 = 1;
+            int a2 = 0;
+            int a1 = 0;
+            int b2 = 1;
+            int b1 = 0;
+            for (a3=0; a3<=9; a3++)
+            {
+                for (a2 = 0; a2 <= 9; a2++)
+                {
+                    for (a1 = 0; a1 <= 9; a1++)
+                    {
+                        for (b2 = 0; b2 <= 9; b2++)
+                        {
+                            for (b1 = 0; b1 <= 9; b1++)
+                            {
+                                if ((a3*100+a2*10+a1+b2*10+b1)>=100 && (a3 * 100 + a2 * 10 + a1 + b2 * 10 + b1) <= 999 && (b2 * 10 + b1)>=10 && (a3 * 100 + a2 * 10 + a1)>=100)
+                                        { Console.WriteLine("a3a2a1 - {0}{1}{2} b2b1 - {3}{4}, sum numbers = {5}" , a3,a2,a1,b2,b1, (a3 * 100 + a2 * 10 + a1 + b2 * 10 + b1)); }
+                            }
+                        }
+                    }
+                }
+            }
+            Console.ReadLine();
+        }
+
+        public static void Exercise76()
+        {
+            Console.WriteLine("Enter a from 1 to 8");
+            string inputA = Console.ReadLine();
+            Console.WriteLine("Enter b from 1 to 8");
+            string inputB = Console.ReadLine();
+            Console.WriteLine("Enter c from 1 to 8");
+            string inputC = Console.ReadLine();
+            Console.WriteLine("Enter d from 1 to 8");
+            string inputD = Console.ReadLine();
+
+            if (int.TryParse(inputA, out int a) &&
+                int.TryParse(inputB, out int b) &&
+                int.TryParse(inputC, out int c) &&
+                int.TryParse(inputD, out int d) &&
+                a>=1 && a<=8 && b>=1 &&b<=8&& c>=1 &&c<=8 && c>=1 && c <= 8)
+            {
+
+                bool answ_d = false;
+
+                if (a==c || b == d) 
+                { Console.WriteLine("answ a: rook is dangerous");
+                    answ_d = true;
+                } 
+                
+                else { Console.WriteLine("answ a: rook isnt dangerous"); }
+
+                int tmp_a = a;
+                int tmp_b = b;
+
+                
+
+                while (tmp_a <= 8 && tmp_b <= 8)
+                    {
+                        if (tmp_a == c && tmp_b == d)
+                        { Console.WriteLine("answ b: bishop is dangerous");
+                        answ_d = true;
+                    }
+
+
+                    tmp_a++;
+                    tmp_b++;
+                    }   
+
+
+                for (int i=Math.Max(1,a-1); i<=Math.Min(8, a+1); i++)
+                {                    
+                    for  (int j = Math.Max(1, b - 1); j <= Math.Min(8, b + 1); j++){
+
+                        if (i==c && j == d) { Console.WriteLine("answ c: king could be in c,d"); }
+                }
+                }
+
+                // Part D
+                if (answ_d) { Console.WriteLine("answ d: queen is dangerous"); } else { Console.WriteLine("answ d: queen isnt dangerous"); }
+
+                // Part E
+                if (a+1==c && a<=7) { Console.WriteLine("answ e: white pawn could be in next step in c,d"); }
+
+                // Part F
+                if (a - 1 == c && a >=1) { Console.WriteLine("answ f: black pawn could be in next step in c,d"); }
+
+                //Part G
+
+                for (int i = Math.Max(1,a-2); i<=Math.Min(8, a+2); i++)
+                {
+                    for (int j = Math.Max(1, b - 2); j <= Math.Min(8, b + 2); j++)
+                    {
+                        if (i!=j && i != a && j != b)
+                        {
+                            Console.WriteLine("{0}, {1}", i,j);
+                        }
+                    }
+                }
+
+
+            }
+            else { Console.WriteLine("a,b,c,and d should be integer between 1 to 8"); }
+        }
+
 
 
 
@@ -2048,7 +2196,10 @@ namespace _1400_exercises
         {
             static void Main(string[] args)
             {
-                Chapter4.Exercise73();
+                Chapter4.Exercise76();
+                //Chapter4.Exercise75();
+                //Chapter4.Exercise74();
+                //Chapter4.Exercise73();
                 //Chapter4.Exercise72();
                 //Chapter4.Exercise71();
                 //Chapter4.Exercise70();
