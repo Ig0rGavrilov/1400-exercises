@@ -2172,16 +2172,19 @@ namespace _1400_exercises
                 if (a - 1 == c && a >=1) { Console.WriteLine("answ f: black pawn could be in next step in c,d"); }
 
                 //Part G
-
+                int tmp = 5;
                 for (int i = Math.Max(1,a-2); i<=Math.Min(8, a+2); i++)
                 {
                     for (int j = Math.Max(1, b - 2); j <= Math.Min(8, b + 2); j++)
                     {
-                        if (i!=j && i != a && j != b)
-                        {
+                        if (i!=j && i!=tmp && i!=a && j!=b)   //
+                        
+                            {
                             Console.WriteLine("{0}, {1}", i,j);
-                        }
+                             }
+                         
                     }
+                    tmp--;
                 }
 
 
